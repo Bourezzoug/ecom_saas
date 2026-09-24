@@ -1,0 +1,16 @@
+{
+    "key": "newsletter",
+    "name": "Newsletter signup",
+    "category": "cta",
+    "placement": "body",
+    "page_types": [
+        "home",
+        "about",
+        "contact",
+        "custom"
+    ],
+    "requires_woocommerce": false,
+    "interactive": false,
+    "thumbnail": null,
+    "planner_description": "Email signup box with a short promise of what subscribers get."
+}

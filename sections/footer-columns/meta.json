@@ -1,0 +1,11 @@
+{
+    "key": "footer-columns",
+    "name": "Footer — columns",
+    "category": "footer",
+    "placement": "footer",
+    "page_types": [],
+    "requires_woocommerce": false,
+    "interactive": false,
+    "thumbnail": null,
+    "planner_description": "About text, menu links, contact details and copyright."
+}

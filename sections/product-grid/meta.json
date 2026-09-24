@@ -1,0 +1,11 @@
+{
+    "key": "product-grid",
+    "name": "Product grid",
+    "category": "commerce",
+    "placement": "body",
+    "page_types": ["home", "custom"],
+    "requires_woocommerce": true,
+    "interactive": false,
+    "thumbnail": null,
+    "planner_description": "Grid of products with prices and add-to-cart buttons, e.g. best sellers or new arrivals."
+}

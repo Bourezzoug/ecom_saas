@@ -1,0 +1,26 @@
+<section id="{{section.anchor}}" data-aisg-section="{{section.key}}" class="aisg-lp-comparison tw-py-section {{#style.background_is_background}}tw-bg-background tw-text-text{{/style.background_is_background}}{{#style.background_is_surface}}tw-bg-surface tw-text-text{{/style.background_is_surface}}">
+    <div class="tw-mx-auto tw-max-w-3xl tw-px-4">
+        <div class="tw-mb-8 tw-text-center">
+            <h2 class="tw-font-heading tw-text-3xl tw-font-bold">{{content.title}}</h2>
+            {{#content.subtitle}}<p class="tw-mt-3 tw-text-muted">{{content.subtitle}}</p>{{/content.subtitle}}
+        </div>
+        <table class="tw-w-full tw-border-collapse tw-overflow-hidden tw-rounded-aisg tw-bg-background tw-text-start">
+            <thead>
+                <tr class="tw-border-b tw-border-border">
+                    <th class="tw-p-4 tw-text-start tw-font-semibold" scope="col"><span class="tw-sr-only">{{content.title}}</span></th>
+                    <th class="tw-w-28 tw-bg-primary tw-p-4 tw-text-center tw-font-semibold tw-text-primary-contrast" scope="col">{{content.us_label}}</th>
+                    <th class="tw-w-28 tw-p-4 tw-text-center tw-font-semibold tw-text-muted" scope="col">{{content.them_label}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#content.rows}}
+                <tr class="tw-border-b tw-border-border">
+                    <th class="tw-p-4 tw-text-start tw-font-normal" scope="row">{{feature}}</th>
+                    <td class="tw-p-4 tw-text-center">{{#us}}<span class="aisg-icon aisg-icon--check tw-text-primary" role="img" aria-label="✓"></span>{{/us}}{{^us}}<span aria-label="—">—</span>{{/us}}</td>
+                    <td class="tw-p-4 tw-text-center tw-text-muted">{{#them}}<span class="aisg-icon aisg-icon--check" role="img" aria-label="✓"></span>{{/them}}{{^them}}<span aria-label="—">—</span>{{/them}}</td>
+                </tr>
+                {{/content.rows}}
+            </tbody>
+        </table>
+    </div>
+</section>

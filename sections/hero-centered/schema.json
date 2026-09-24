@@ -1,0 +1,121 @@
+{
+    "$schema": "../_meta-schema/section.schema.json",
+    "key": "hero-centered",
+    "version": 1,
+    "fields": [
+        {
+            "name": "eyebrow",
+            "type": "text",
+            "label": "Eyebrow",
+            "default": "Welcome",
+            "constraints": {
+                "maxLength": 40
+            },
+            "ai": {
+                "generate": true,
+                "hint": "2 to 4 word label above the headline"
+            }
+        },
+        {
+            "name": "headline",
+            "type": "text",
+            "label": "Headline",
+            "default": "Made with care, made to last",
+            "constraints": {
+                "maxLength": 90,
+                "minLength": 5
+            },
+            "required": true,
+            "ai": {
+                "generate": true,
+                "hint": "Benefit-led headline, no final punctuation"
+            }
+        },
+        {
+            "name": "subheadline",
+            "type": "textarea",
+            "label": "Subheadline",
+            "default": "Discover products designed for everyday life.",
+            "constraints": {
+                "maxLength": 220
+            },
+            "ai": {
+                "generate": true,
+                "hint": "One or two sentences that expand on the headline"
+            }
+        },
+        {
+            "name": "primary_cta",
+            "type": "link",
+            "label": "Primary button",
+            "default": {
+                "label": "Shop now",
+                "target": {
+                    "kind": "system",
+                    "value": "shop"
+                }
+            },
+            "constraints": {
+                "maxLength": 24
+            },
+            "ai": {
+                "generate": true,
+                "hint": "Button text, 1 to 3 words"
+            }
+        },
+        {
+            "name": "secondary_cta",
+            "type": "link",
+            "label": "Secondary button",
+            "default": {
+                "label": "",
+                "target": {
+                    "kind": "url",
+                    "value": "#"
+                }
+            },
+            "constraints": {
+                "maxLength": 24
+            }
+        }
+    ],
+    "style": [
+        {
+            "name": "background",
+            "type": "select",
+            "label": "Background",
+            "default": "primary",
+            "options": [
+                {
+                    "value": "background",
+                    "label": "Page background"
+                },
+                {
+                    "value": "surface",
+                    "label": "Surface"
+                },
+                {
+                    "value": "primary",
+                    "label": "Primary colour"
+                }
+            ]
+        },
+        {
+            "name": "size",
+            "type": "select",
+            "label": "Height",
+            "default": "lg",
+            "options": [
+                {
+                    "value": "md",
+                    "label": "Medium"
+                },
+                {
+                    "value": "lg",
+                    "label": "Large"
+                }
+            ]
+        }
+    ],
+    "data": {}
+}

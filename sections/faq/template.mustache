@@ -1,0 +1,25 @@
+<section id="{{section.anchor}}" data-aisg-section="{{section.key}}" x-data="aisgAccordion" class="aisg-faq tw-py-section tw-text-text {{#style.background_is_background}}tw-bg-background{{/style.background_is_background}}{{#style.background_is_surface}}tw-bg-surface{{/style.background_is_surface}}">
+    <div class="tw-mx-auto tw-max-w-3xl tw-px-4">
+        <div class="tw-mb-8 tw-text-center">
+            <h2 class="tw-font-heading tw-text-3xl tw-font-bold">{{content.title}}</h2>
+            {{#content.intro}}
+            <p class="tw-mt-3 tw-text-muted">{{content.intro}}</p>
+            {{/content.intro}}
+        </div>
+        <div class="tw-divide-y tw-divide-border tw-rounded-aisg tw-border tw-border-border">
+            {{#content.items}}
+            <div>
+                <h3 class="tw-m-0">
+                    <button type="button" id="{{section.anchor}}-q{{_index}}" class="tw-flex tw-w-full tw-items-center tw-justify-between tw-gap-4 tw-bg-transparent tw-px-5 tw-py-4 tw-text-start tw-font-semibold tw-text-text" @click="toggle({{_index}})" :aria-expanded="isOpen({{_index}}).toString()" aria-controls="{{section.anchor}}-a{{_index}}">
+                        <span>{{question}}</span>
+                        <span class="aisg-icon aisg-icon--chevron tw-shrink-0 tw-transition-transform" :class="isOpen({{_index}}) &amp;&amp; 'tw-rotate-180'" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div id="{{section.anchor}}-a{{_index}}" role="region" aria-labelledby="{{section.anchor}}-q{{_index}}" x-show="isOpen({{_index}})" x-cloak class="tw-px-5 tw-pb-4 tw-text-muted">
+                    <p class="tw-m-0 tw-whitespace-pre-line">{{answer}}</p>
+                </div>
+            </div>
+            {{/content.items}}
+        </div>
+    </div>
+</section>

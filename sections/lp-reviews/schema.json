@@ -1,0 +1,132 @@
+{
+    "$schema": "../_meta-schema/section.schema.json",
+    "key": "lp-reviews",
+    "version": 1,
+    "fields": [
+        {
+            "name": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "Customer reviews",
+            "constraints": {
+                "maxLength": 60,
+                "minLength": 2
+            },
+            "required": true,
+            "ai": {
+                "generate": true,
+                "hint": "Short section title"
+            }
+        },
+        {
+            "name": "summary",
+            "type": "text",
+            "label": "Rating summary",
+            "default": "",
+            "constraints": {
+                "maxLength": 80
+            }
+        },
+        {
+            "name": "items",
+            "type": "repeater",
+            "label": "Reviews",
+            "item_label": "{{name}}",
+            "constraints": {
+                "minItems": 2,
+                "maxItems": 6
+            },
+            "default": [
+                {
+                    "headline": "Replace with a real review",
+                    "quote": "Paste a genuine customer review here.",
+                    "name": "Customer name",
+                    "rating": "5"
+                },
+                {
+                    "headline": "Replace with a real review",
+                    "quote": "Paste a genuine customer review here.",
+                    "name": "Customer name",
+                    "rating": "5"
+                }
+            ],
+            "ai": {
+                "generate": true,
+                "hint": "Example reviews in the voice of typical buyers; they will be replaced by real reviews"
+            },
+            "fields": [
+                {
+                    "name": "headline",
+                    "type": "text",
+                    "label": "Headline",
+                    "default": "",
+                    "constraints": {
+                        "maxLength": 70
+                    },
+                    "ai": {
+                        "generate": true,
+                        "hint": "Short review title, 3 to 7 words"
+                    }
+                },
+                {
+                    "name": "quote",
+                    "type": "textarea",
+                    "label": "Review",
+                    "default": "",
+                    "constraints": {
+                        "maxLength": 400,
+                        "minLength": 5
+                    },
+                    "ai": {
+                        "generate": true,
+                        "hint": "Two or three sentences about using the product"
+                    }
+                },
+                {
+                    "name": "name",
+                    "type": "text",
+                    "label": "Customer name",
+                    "default": "Customer name",
+                    "constraints": {
+                        "maxLength": 60
+                    }
+                },
+                {
+                    "name": "rating",
+                    "type": "select",
+                    "label": "Rating",
+                    "default": "5",
+                    "options": [
+                        {
+                            "value": "5",
+                            "label": "5 stars"
+                        },
+                        {
+                            "value": "4",
+                            "label": "4 stars"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "style": [
+        {
+            "name": "background",
+            "type": "select",
+            "label": "Background",
+            "default": "background",
+            "options": [
+                {
+                    "value": "background",
+                    "label": "Page background"
+                },
+                {
+                    "value": "surface",
+                    "label": "Surface"
+                }
+            ]
+        }
+    ],
+    "data": {}
+}

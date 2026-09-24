@@ -1,0 +1,145 @@
+{
+    "$schema": "../_meta-schema/section.schema.json",
+    "key": "lp-comparison",
+    "version": 1,
+    "fields": [
+        {
+            "name": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "Why choose us",
+            "constraints": {
+                "maxLength": 70,
+                "minLength": 2
+            },
+            "required": true,
+            "ai": {
+                "generate": true,
+                "hint": "Short section title"
+            }
+        },
+        {
+            "name": "subtitle",
+            "type": "textarea",
+            "label": "Subtitle",
+            "default": "",
+            "constraints": {
+                "maxLength": 200
+            },
+            "ai": {
+                "generate": true,
+                "hint": "One sentence introducing the comparison"
+            }
+        },
+        {
+            "name": "us_label",
+            "type": "text",
+            "label": "Our column label",
+            "default": "Us",
+            "constraints": {
+                "maxLength": 30
+            },
+            "ai": {
+                "generate": true,
+                "hint": "Short label for this store's product"
+            }
+        },
+        {
+            "name": "them_label",
+            "type": "text",
+            "label": "Other column label",
+            "default": "Others",
+            "constraints": {
+                "maxLength": 30
+            },
+            "ai": {
+                "generate": true,
+                "hint": "Short label for typical alternatives, never a competitor brand name"
+            }
+        },
+        {
+            "name": "rows",
+            "type": "repeater",
+            "label": "Rows",
+            "item_label": "{{feature}}",
+            "constraints": {
+                "minItems": 3,
+                "maxItems": 8
+            },
+            "default": [
+                {
+                    "feature": "Carefully selected quality",
+                    "us": true,
+                    "them": false
+                },
+                {
+                    "feature": "Friendly support",
+                    "us": true,
+                    "them": false
+                },
+                {
+                    "feature": "Easy returns",
+                    "us": true,
+                    "them": true
+                }
+            ],
+            "ai": {
+                "generate": true,
+                "hint": "Honest, general feature comparisons; no named competitors, no numbers"
+            },
+            "fields": [
+                {
+                    "name": "feature",
+                    "type": "text",
+                    "label": "Feature",
+                    "default": "",
+                    "constraints": {
+                        "maxLength": 80,
+                        "minLength": 2
+                    },
+                    "ai": {
+                        "generate": true,
+                        "hint": "2 to 8 words"
+                    }
+                },
+                {
+                    "name": "us",
+                    "type": "boolean",
+                    "label": "We have it",
+                    "default": true,
+                    "ai": {
+                        "generate": true
+                    }
+                },
+                {
+                    "name": "them",
+                    "type": "boolean",
+                    "label": "Others have it",
+                    "default": false,
+                    "ai": {
+                        "generate": true
+                    }
+                }
+            ]
+        }
+    ],
+    "style": [
+        {
+            "name": "background",
+            "type": "select",
+            "label": "Background",
+            "default": "surface",
+            "options": [
+                {
+                    "value": "background",
+                    "label": "Page background"
+                },
+                {
+                    "value": "surface",
+                    "label": "Surface"
+                }
+            ]
+        }
+    ],
+    "data": {}
+}

@@ -1,0 +1,12 @@
+<div id="{{section.anchor}}" data-aisg-section="{{section.key}}" x-data="aisgSticky" data-always="{{#style.always_visible}}1{{/style.always_visible}}" class="aisg-sticky-atc">
+    <div x-show="visible" {{^style.always_visible}}x-cloak{{/style.always_visible}} x-transition.opacity class="tw-fixed tw-inset-x-0 tw-bottom-0 tw-z-50 tw-border-t tw-border-border tw-bg-background tw-text-text tw-shadow-lg">
+        <div class="tw-mx-auto tw-flex tw-max-w-container tw-items-center tw-gap-4 tw-px-4 tw-py-3">
+            <div class="tw-hidden tw-h-12 tw-w-12 tw-shrink-0 tw-overflow-hidden tw-rounded-aisg sm:tw-block">{{#data.product.image.url}}<img src="{{data.product.image.url}}" alt="{{data.product.image.alt}}" class="tw-aspect-square tw-h-full tw-w-full tw-object-cover" loading="lazy">{{/data.product.image.url}}{{^data.product.image.url}}<div class="aisg-placeholder tw-aspect-square tw-w-full" role="img" aria-label="{{data.product.name}}"></div>{{/data.product.image.url}}</div>
+            <div class="tw-min-w-0 tw-flex-1 tw-text-start">
+                <p class="tw-truncate tw-font-semibold">{{data.product.name}}</p>
+                <div class="aisg-price tw-text-sm">{{{data.product.price_html}}}</div>
+            </div>
+            <a href="{{data.product.add_to_cart_url}}" class="tw-shrink-0 tw-rounded-aisg tw-bg-primary tw-px-6 tw-py-3 tw-font-semibold tw-text-primary-contrast tw-no-underline" rel="nofollow">{{content.add_to_cart_label}}</a>
+        </div>
+    </div>
+</div>

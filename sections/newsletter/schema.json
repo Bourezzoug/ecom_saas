@@ -1,0 +1,109 @@
+{
+    "$schema": "../_meta-schema/section.schema.json",
+    "key": "newsletter",
+    "version": 1,
+    "fields": [
+        {
+            "name": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "Join our newsletter",
+            "constraints": {
+                "maxLength": 60,
+                "minLength": 2
+            },
+            "required": true,
+            "ai": {
+                "generate": true,
+                "hint": "Short title inviting visitors to subscribe"
+            }
+        },
+        {
+            "name": "text",
+            "type": "textarea",
+            "label": "Text",
+            "default": "News, launches and stories, straight to your inbox.",
+            "constraints": {
+                "maxLength": 200
+            },
+            "ai": {
+                "generate": true,
+                "hint": "One sentence on what subscribers receive, no invented discounts"
+            }
+        },
+        {
+            "name": "placeholder",
+            "type": "text",
+            "label": "Email placeholder",
+            "default": "Your email address",
+            "constraints": {
+                "maxLength": 40
+            },
+            "ai": {
+                "generate": true,
+                "hint": "Placeholder text for the email field"
+            }
+        },
+        {
+            "name": "button_label",
+            "type": "text",
+            "label": "Button label",
+            "default": "Subscribe",
+            "constraints": {
+                "maxLength": 24
+            },
+            "ai": {
+                "generate": true,
+                "hint": "Button text, 1 or 2 words"
+            }
+        },
+        {
+            "name": "consent",
+            "type": "text",
+            "label": "Small print",
+            "default": "You can unsubscribe at any time.",
+            "constraints": {
+                "maxLength": 120
+            },
+            "ai": {
+                "generate": true,
+                "hint": "Short reassurance about unsubscribing"
+            }
+        },
+        {
+            "name": "form_target",
+            "type": "link",
+            "label": "Form destination (URL of your email tool)",
+            "default": {
+                "label": "",
+                "target": {
+                    "kind": "url",
+                    "value": "#"
+                }
+            }
+        }
+    ],
+    "style": [
+        {
+            "name": "background",
+            "type": "select",
+            "label": "Background",
+            "default": "surface",
+            "options": [
+                {
+                    "value": "background",
+                    "label": "Page background"
+                },
+                {
+                    "value": "surface",
+                    "label": "Surface"
+                },
+                {
+                    "value": "primary",
+                    "label": "Primary colour"
+                }
+            ]
+        }
+    ],
+    "data": {}
+}

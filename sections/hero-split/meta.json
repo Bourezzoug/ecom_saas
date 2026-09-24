@@ -1,0 +1,11 @@
+{
+    "key": "hero-split",
+    "name": "Hero — split image",
+    "category": "hero",
+    "placement": "body",
+    "page_types": ["home", "about", "contact", "custom"],
+    "requires_woocommerce": false,
+    "interactive": false,
+    "thumbnail": null,
+    "planner_description": "Big headline with supporting text and a button beside an image. Best as the first section of a page."
+}

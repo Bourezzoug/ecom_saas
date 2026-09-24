@@ -1,0 +1,15 @@
+{
+    "key": "lp-features",
+    "name": "Landing — feature rows",
+    "category": "landing",
+    "placement": "body",
+    "page_types": [
+        "landing",
+        "custom",
+        "about"
+    ],
+    "requires_woocommerce": false,
+    "interactive": false,
+    "thumbnail": null,
+    "planner_description": "Alternating image and text rows, each explaining one product feature."
+}

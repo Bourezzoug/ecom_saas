@@ -1,0 +1,77 @@
+{
+    "$schema": "../_meta-schema/section.schema.json",
+    "key": "cta-banner",
+    "version": 1,
+    "fields": [
+        {
+            "name": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "Ready to find your favourite?",
+            "constraints": {
+                "maxLength": 80,
+                "minLength": 2
+            },
+            "required": true,
+            "ai": {
+                "generate": true,
+                "hint": "Short, motivating headline"
+            }
+        },
+        {
+            "name": "text",
+            "type": "textarea",
+            "label": "Text",
+            "default": "",
+            "constraints": {
+                "maxLength": 200
+            },
+            "ai": {
+                "generate": true,
+                "hint": "One sentence of supporting text"
+            }
+        },
+        {
+            "name": "cta",
+            "type": "link",
+            "label": "Button",
+            "default": {
+                "label": "Shop now",
+                "target": {
+                    "kind": "system",
+                    "value": "shop"
+                }
+            },
+            "constraints": {
+                "maxLength": 24
+            },
+            "ai": {
+                "generate": true,
+                "hint": "Button text, 1 to 3 words"
+            }
+        }
+    ],
+    "style": [
+        {
+            "name": "background",
+            "type": "select",
+            "label": "Background",
+            "default": "primary",
+            "options": [
+                {
+                    "value": "primary",
+                    "label": "Primary colour"
+                },
+                {
+                    "value": "accent",
+                    "label": "Accent colour"
+                },
+                {
+                    "value": "text",
+                    "label": "Dark (text colour)"
+                }
+            ]
+        }
+    ],
+    "data": {}
+}

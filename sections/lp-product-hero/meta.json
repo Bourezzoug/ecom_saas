@@ -1,0 +1,14 @@
+{
+    "key": "lp-product-hero",
+    "name": "Landing — product hero",
+    "category": "landing",
+    "placement": "body",
+    "page_types": [
+        "landing",
+        "custom"
+    ],
+    "requires_woocommerce": true,
+    "interactive": true,
+    "thumbnail": null,
+    "planner_description": "Product gallery with badge, pitch, key benefits, options, price and add-to-cart. First section of a product landing page."
+}

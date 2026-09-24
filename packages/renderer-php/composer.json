@@ -1,0 +1,16 @@
+{
+    "name": "aisg/sections",
+    "description": "Section registry, schema compiler and Mustache renderer shared by the AISG platform and the WordPress connector.",
+    "type": "library",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.1",
+        "mustache/mustache": "^2.14 || ^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aisg\\Sections\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}

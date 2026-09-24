@@ -1,0 +1,14 @@
+{
+    "key": "lp-sticky-atc",
+    "name": "Landing — sticky add-to-cart bar",
+    "category": "landing",
+    "placement": "body",
+    "page_types": [
+        "landing",
+        "custom"
+    ],
+    "requires_woocommerce": true,
+    "interactive": true,
+    "thumbnail": null,
+    "planner_description": "Bar fixed to the bottom of the screen with product, price and add-to-cart, shown after scrolling."
+}

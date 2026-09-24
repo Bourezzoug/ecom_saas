@@ -1,0 +1,14 @@
+{
+    "key": "featured-product",
+    "name": "Featured product",
+    "category": "commerce",
+    "placement": "body",
+    "page_types": [
+        "home",
+        "custom"
+    ],
+    "requires_woocommerce": true,
+    "interactive": false,
+    "thumbnail": null,
+    "planner_description": "Spotlight on one hero product with image, key benefits, price and add-to-cart."
+}

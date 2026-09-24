@@ -1,0 +1,40 @@
+{
+    "$schema": "../_meta-schema/section.schema.json",
+    "key": "lp-sticky-atc",
+    "version": 1,
+    "fields": [
+        {
+            "name": "add_to_cart_label",
+            "type": "text",
+            "label": "Add to cart label",
+            "default": "Add to cart",
+            "constraints": {
+                "maxLength": 24
+            },
+            "ai": {
+                "generate": true,
+                "hint": "Add to cart button text, 1 to 3 words"
+            }
+        },
+        {
+            "name": "product",
+            "type": "product",
+            "label": "Product",
+            "default": null
+        }
+    ],
+    "style": [
+        {
+            "name": "always_visible",
+            "type": "boolean",
+            "label": "Always visible (ignore scroll)",
+            "default": false
+        }
+    ],
+    "data": {
+        "product": {
+            "resolver": "product",
+            "from_field": "product"
+        }
+    }
+}

@@ -1,0 +1,85 @@
+{
+    "$schema": "../_meta-schema/section.schema.json",
+    "key": "categories-grid",
+    "version": 1,
+    "fields": [
+        {
+            "name": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "Shop by category",
+            "constraints": {
+                "maxLength": 60,
+                "minLength": 2
+            },
+            "required": true,
+            "ai": {
+                "generate": true,
+                "hint": "Short section title"
+            }
+        },
+        {
+            "name": "subtitle",
+            "type": "textarea",
+            "label": "Subtitle",
+            "default": "",
+            "constraints": {
+                "maxLength": 160
+            },
+            "ai": {
+                "generate": true,
+                "hint": "One sentence inviting shoppers to browse"
+            }
+        },
+        {
+            "name": "limit",
+            "type": "number",
+            "label": "Number of categories",
+            "default": 4,
+            "constraints": {
+                "min": 2,
+                "max": 8
+            }
+        }
+    ],
+    "style": [
+        {
+            "name": "columns",
+            "type": "select",
+            "label": "Columns on desktop",
+            "default": "4",
+            "options": [
+                {
+                    "value": "3",
+                    "label": "3"
+                },
+                {
+                    "value": "4",
+                    "label": "4"
+                }
+            ]
+        },
+        {
+            "name": "background",
+            "type": "select",
+            "label": "Background",
+            "default": "background",
+            "options": [
+                {
+                    "value": "background",
+                    "label": "Page background"
+                },
+                {
+                    "value": "surface",
+                    "label": "Surface"
+                }
+            ]
+        }
+    ],
+    "data": {
+        "categories": {
+            "resolver": "categories",
+            "from_field": "limit"
+        }
+    }
+}

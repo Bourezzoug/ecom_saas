@@ -1,0 +1,14 @@
+<section id="{{section.anchor}}" data-aisg-section="{{section.key}}" class="aisg-testimonials tw-py-section {{#style.background_is_background}}tw-bg-background tw-text-text{{/style.background_is_background}}{{#style.background_is_surface}}tw-bg-surface tw-text-text{{/style.background_is_surface}}">
+    <div class="tw-mx-auto tw-max-w-container tw-px-4">
+        <div class="tw-mb-10 tw-text-center"><h2 class="tw-font-heading tw-text-3xl tw-font-bold">{{content.title}}</h2></div>
+        <ul class="tw-grid tw-gap-6 md:tw-grid-cols-3">
+            {{#content.items}}
+            <li class="tw-flex tw-flex-col tw-gap-4 tw-rounded-aisg tw-border tw-border-border tw-bg-background tw-p-6 tw-text-start">
+                <span class="tw-flex tw-gap-0.5 tw-text-accent" aria-label="{{rating}} / 5">{{#rating_is_5}}<span class="aisg-icon aisg-icon--star"></span><span class="aisg-icon aisg-icon--star"></span><span class="aisg-icon aisg-icon--star"></span><span class="aisg-icon aisg-icon--star"></span><span class="aisg-icon aisg-icon--star"></span>{{/rating_is_5}}{{#rating_is_4}}<span class="aisg-icon aisg-icon--star"></span><span class="aisg-icon aisg-icon--star"></span><span class="aisg-icon aisg-icon--star"></span><span class="aisg-icon aisg-icon--star"></span>{{/rating_is_4}}</span>
+                <blockquote class="tw-m-0 tw-flex-1 tw-text-text">&ldquo;{{quote}}&rdquo;</blockquote>
+                <p class="tw-text-sm"><span class="tw-font-semibold">{{name}}</span>{{#detail}}<span class="tw-text-muted"> · {{detail}}</span>{{/detail}}</p>
+            </li>
+            {{/content.items}}
+        </ul>
+    </div>
+</section>

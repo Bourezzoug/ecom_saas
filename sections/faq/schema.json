@@ -1,0 +1,68 @@
+{
+    "$schema": "../_meta-schema/section.schema.json",
+    "key": "faq",
+    "version": 1,
+    "fields": [
+        {
+            "name": "title",
+            "type": "text",
+            "label": "Title",
+            "required": true,
+            "default": "Frequently asked questions",
+            "constraints": { "minLength": 2, "maxLength": 60 },
+            "ai": { "generate": true, "hint": "Section title" }
+        },
+        {
+            "name": "intro",
+            "type": "textarea",
+            "label": "Intro",
+            "default": "",
+            "constraints": { "maxLength": 200 },
+            "ai": { "generate": true, "hint": "One short sentence introducing the questions" }
+        },
+        {
+            "name": "items",
+            "type": "repeater",
+            "label": "Questions",
+            "item_label": "{{question}}",
+            "constraints": { "minItems": 3, "maxItems": 6 },
+            "default": [
+                { "question": "How long does shipping take?", "answer": "Orders ship within 2 business days." },
+                { "question": "Can I return an item?", "answer": "Yes, within 30 days of delivery." },
+                { "question": "How can I contact you?", "answer": "Send us a message and we reply within a day." }
+            ],
+            "ai": { "generate": true, "hint": "Questions real customers of this store would ask, with helpful answers" },
+            "fields": [
+                {
+                    "name": "question",
+                    "type": "text",
+                    "label": "Question",
+                    "default": "",
+                    "constraints": { "minLength": 5, "maxLength": 140 },
+                    "ai": { "generate": true, "hint": "A customer question" }
+                },
+                {
+                    "name": "answer",
+                    "type": "textarea",
+                    "label": "Answer",
+                    "default": "",
+                    "constraints": { "minLength": 5, "maxLength": 500 },
+                    "ai": { "generate": true, "hint": "Clear answer in 1 to 3 sentences" }
+                }
+            ]
+        }
+    ],
+    "style": [
+        {
+            "name": "background",
+            "type": "select",
+            "label": "Background",
+            "default": "background",
+            "options": [
+                { "value": "background", "label": "Page background" },
+                { "value": "surface", "label": "Surface" }
+            ]
+        }
+    ],
+    "data": {}
+}

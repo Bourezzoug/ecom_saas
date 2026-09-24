@@ -1,0 +1,39 @@
+<section id="{{section.anchor}}" data-aisg-section="{{section.key}}" class="aisg-hero tw-py-section {{#style.background_is_background}}tw-bg-background tw-text-text{{/style.background_is_background}}{{#style.background_is_surface}}tw-bg-surface tw-text-text{{/style.background_is_surface}}{{#style.background_is_primary}}tw-bg-primary tw-text-primary-contrast{{/style.background_is_primary}}">
+    <div class="tw-mx-auto tw-grid tw-max-w-container tw-items-center tw-gap-10 tw-px-4 md:tw-grid-cols-2">
+        <div class="tw-flex tw-flex-col tw-gap-5 tw-text-start {{#style.layout_is_start}}md:tw-order-last{{/style.layout_is_start}}">
+            {{#content.eyebrow}}
+            <p class="tw-text-sm tw-font-semibold tw-uppercase tw-tracking-wider {{^style.background_is_primary}}tw-text-primary{{/style.background_is_primary}}">{{content.eyebrow}}</p>
+            {{/content.eyebrow}}
+            <h1 class="tw-font-heading tw-text-4xl tw-font-bold tw-leading-tight md:tw-text-5xl">{{content.headline}}</h1>
+            {{#content.subheadline}}
+            <p class="tw-max-w-prose tw-text-lg tw-opacity-80">{{content.subheadline}}</p>
+            {{/content.subheadline}}
+            <div class="tw-flex tw-flex-wrap tw-gap-3">
+                {{#content.primary_cta.label}}
+                <a href="{{content.primary_cta.href}}" class="tw-inline-flex tw-items-center tw-rounded-aisg tw-px-6 tw-py-3 tw-font-semibold tw-no-underline {{^style.background_is_primary}}tw-bg-primary tw-text-primary-contrast{{/style.background_is_primary}}{{#style.background_is_primary}}tw-bg-primary-contrast tw-text-primary{{/style.background_is_primary}}">{{content.primary_cta.label}}</a>
+                {{/content.primary_cta.label}}
+                {{#content.secondary_cta.label}}
+                <a href="{{content.secondary_cta.href}}" class="tw-inline-flex tw-items-center tw-rounded-aisg tw-border tw-border-current tw-px-6 tw-py-3 tw-font-semibold tw-no-underline">{{content.secondary_cta.label}}</a>
+                {{/content.secondary_cta.label}}
+            </div>
+            {{#content.highlights.0}}
+            <ul class="tw-flex tw-flex-wrap tw-gap-x-6 tw-gap-y-2 tw-text-sm">
+                {{#content.highlights}}
+                <li class="tw-flex tw-items-center tw-gap-2">
+                    <span class="aisg-icon aisg-icon--{{icon}}" aria-hidden="true"></span>
+                    <span>{{text}}</span>
+                </li>
+                {{/content.highlights}}
+            </ul>
+            {{/content.highlights.0}}
+        </div>
+        <div class="tw-overflow-hidden tw-rounded-aisg">
+            {{#content.image.url}}
+            <img src="{{content.image.url}}" alt="{{content.image.alt}}" class="tw-aspect-[4/3] tw-h-full tw-w-full tw-object-cover" loading="eager">
+            {{/content.image.url}}
+            {{^content.image.url}}
+            <div class="aisg-placeholder tw-aspect-[4/3] tw-w-full" role="img" aria-label="{{content.headline}}"></div>
+            {{/content.image.url}}
+        </div>
+    </div>
+</section>

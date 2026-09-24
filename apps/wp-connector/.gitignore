@@ -1,0 +1,5 @@
+# Build artefacts: mounted in Docker dev, copied into the release ZIP (PluginPackager).
+vendor/
+lib/
+sections/
+assets/runtime/

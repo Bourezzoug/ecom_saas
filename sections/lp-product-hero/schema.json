@@ -1,0 +1,151 @@
+{
+    "$schema": "../_meta-schema/section.schema.json",
+    "key": "lp-product-hero",
+    "version": 1,
+    "fields": [
+        {
+            "name": "badge",
+            "type": "text",
+            "label": "Badge",
+            "default": "",
+            "constraints": {
+                "maxLength": 30
+            },
+            "ai": {
+                "generate": true,
+                "hint": "1 to 3 words, e.g. New or Bestseller"
+            }
+        },
+        {
+            "name": "title",
+            "type": "text",
+            "label": "Title override",
+            "default": "",
+            "constraints": {
+                "maxLength": 90
+            }
+        },
+        {
+            "name": "pitch",
+            "type": "textarea",
+            "label": "Pitch",
+            "default": "Everything you love about it, in one place.",
+            "constraints": {
+                "maxLength": 240
+            },
+            "ai": {
+                "generate": true,
+                "hint": "Two sentences selling the product's main benefit"
+            }
+        },
+        {
+            "name": "bullets",
+            "type": "repeater",
+            "label": "Benefits",
+            "item_label": "{{text}}",
+            "constraints": {
+                "minItems": 0,
+                "maxItems": 5
+            },
+            "default": [],
+            "ai": {
+                "generate": true,
+                "hint": "Concrete product benefits, no invented numbers"
+            },
+            "fields": [
+                {
+                    "name": "icon",
+                    "type": "icon",
+                    "label": "Icon",
+                    "default": "check",
+                    "ai": {
+                        "generate": true,
+                        "hint": "Icon that matches the text"
+                    }
+                },
+                {
+                    "name": "text",
+                    "type": "text",
+                    "label": "Text",
+                    "default": "",
+                    "constraints": {
+                        "maxLength": 70
+                    },
+                    "ai": {
+                        "generate": true,
+                        "hint": "2 to 8 words"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "add_to_cart_label",
+            "type": "text",
+            "label": "Add to cart label",
+            "default": "Add to cart",
+            "constraints": {
+                "maxLength": 24
+            },
+            "ai": {
+                "generate": true,
+                "hint": "Add to cart button text, 1 to 3 words"
+            }
+        },
+        {
+            "name": "quantity_label",
+            "type": "text",
+            "label": "Quantity label",
+            "default": "Quantity",
+            "constraints": {
+                "maxLength": 20
+            },
+            "ai": {
+                "generate": true,
+                "hint": "The word quantity"
+            }
+        },
+        {
+            "name": "trust_line",
+            "type": "text",
+            "label": "Trust line",
+            "default": "",
+            "constraints": {
+                "maxLength": 90
+            },
+            "ai": {
+                "generate": true,
+                "hint": "Short reassurance such as secure checkout; no invented numbers"
+            }
+        },
+        {
+            "name": "product",
+            "type": "product",
+            "label": "Product",
+            "default": null
+        }
+    ],
+    "style": [
+        {
+            "name": "background",
+            "type": "select",
+            "label": "Background",
+            "default": "background",
+            "options": [
+                {
+                    "value": "background",
+                    "label": "Page background"
+                },
+                {
+                    "value": "surface",
+                    "label": "Surface"
+                }
+            ]
+        }
+    ],
+    "data": {
+        "product": {
+            "resolver": "product",
+            "from_field": "product"
+        }
+    }
+}

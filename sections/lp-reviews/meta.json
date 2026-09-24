@@ -1,0 +1,15 @@
+{
+    "key": "lp-reviews",
+    "name": "Landing — reviews",
+    "category": "landing",
+    "placement": "body",
+    "page_types": [
+        "landing",
+        "custom"
+    ],
+    "requires_woocommerce": false,
+    "interactive": false,
+    "review_required": true,
+    "thumbnail": null,
+    "planner_description": "Review cards for the product. The AI writes examples; the owner replaces them with real reviews."
+}

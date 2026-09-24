@@ -1,0 +1,16 @@
+{
+    "name": "@aisg/renderer",
+    "private": true,
+    "type": "module",
+    "description": "Browser twin of packages/renderer-php: section defaults, view-model builder and Mustache rendering with identical output.",
+    "main": "src/index.ts",
+    "scripts": {
+        "render": "node --experimental-strip-types --no-warnings scripts/render.ts"
+    },
+    "dependencies": {
+        "mustache": "^4.2.0"
+    },
+    "devDependencies": {
+        "@types/mustache": "^4.2.5"
+    }
+}

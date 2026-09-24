@@ -1,0 +1,99 @@
+{
+    "$schema": "../_meta-schema/section.schema.json",
+    "key": "hero-image-bg",
+    "version": 1,
+    "fields": [
+        {
+            "name": "headline",
+            "type": "text",
+            "label": "Headline",
+            "default": "Crafted for the way you live",
+            "constraints": {
+                "maxLength": 90,
+                "minLength": 5
+            },
+            "required": true,
+            "ai": {
+                "generate": true,
+                "hint": "Short, evocative headline, no final punctuation"
+            }
+        },
+        {
+            "name": "subheadline",
+            "type": "textarea",
+            "label": "Subheadline",
+            "default": "Quality you can feel, from our workshop to your home.",
+            "constraints": {
+                "maxLength": 200
+            },
+            "ai": {
+                "generate": true,
+                "hint": "One sentence of supporting text"
+            }
+        },
+        {
+            "name": "primary_cta",
+            "type": "link",
+            "label": "Button",
+            "default": {
+                "label": "Shop the collection",
+                "target": {
+                    "kind": "system",
+                    "value": "shop"
+                }
+            },
+            "constraints": {
+                "maxLength": 24
+            },
+            "ai": {
+                "generate": true,
+                "hint": "Button text, 1 to 4 words"
+            }
+        },
+        {
+            "name": "image",
+            "type": "image",
+            "label": "Background image",
+            "default": {
+                "asset_id": null,
+                "url": null,
+                "alt": ""
+            }
+        }
+    ],
+    "style": [
+        {
+            "name": "overlay",
+            "type": "select",
+            "label": "Overlay",
+            "default": "dark",
+            "options": [
+                {
+                    "value": "dark",
+                    "label": "Dark"
+                },
+                {
+                    "value": "light",
+                    "label": "Light"
+                }
+            ]
+        },
+        {
+            "name": "align",
+            "type": "select",
+            "label": "Text alignment",
+            "default": "center",
+            "options": [
+                {
+                    "value": "start",
+                    "label": "Start"
+                },
+                {
+                    "value": "center",
+                    "label": "Centre"
+                }
+            ]
+        }
+    ],
+    "data": {}
+}

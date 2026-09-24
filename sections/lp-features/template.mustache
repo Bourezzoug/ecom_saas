@@ -1,0 +1,14 @@
+<section id="{{section.anchor}}" data-aisg-section="{{section.key}}" class="aisg-lp-features tw-py-section {{#style.background_is_background}}tw-bg-background tw-text-text{{/style.background_is_background}}{{#style.background_is_surface}}tw-bg-surface tw-text-text{{/style.background_is_surface}}">
+    <div class="tw-mx-auto tw-flex tw-max-w-container tw-flex-col tw-gap-16 tw-px-4">
+        <div class="tw-text-center"><h2 class="tw-font-heading tw-text-3xl tw-font-bold">{{content.title}}</h2></div>
+        {{#content.items}}
+        <div class="tw-grid tw-items-center tw-gap-8 md:tw-grid-cols-2">
+            <div class="tw-overflow-hidden tw-rounded-aisg {{#_even}}md:tw-order-last{{/_even}}">{{#image.url}}<img src="{{image.url}}" alt="{{image.alt}}" class="tw-aspect-[4/3] tw-h-full tw-w-full tw-object-cover" loading="lazy">{{/image.url}}{{^image.url}}<div class="aisg-placeholder tw-aspect-[4/3] tw-w-full" role="img" aria-label="{{title}}"></div>{{/image.url}}</div>
+            <div class="tw-flex tw-flex-col tw-gap-3 tw-text-start">
+                <h3 class="tw-font-heading tw-text-2xl tw-font-semibold">{{title}}</h3>
+                <p class="tw-text-muted">{{text}}</p>
+            </div>
+        </div>
+        {{/content.items}}
+    </div>
+</section>

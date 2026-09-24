@@ -1,0 +1,209 @@
+# Local development environment.
+#   docker compose up -d            → platform on http://localhost:8000, staging WP on http://localhost:8081
+# GPU for Ollama: see docker-compose.gpu.yml and the root .env.example.
+
+x-platform: &platform
+  image: aisg-php:dev
+  build:
+    context: ./docker/php
+  # The whole repo is mounted so relative paths (apps/platform → ../../packages, ../../sections)
+  # are identical on the host and in the container.
+  working_dir: /var/www/aisg/apps/platform
+  volumes:
+    - .:/var/www/aisg
+    # vendor/ lives in a Docker volume: PHP stats thousands of vendor files per request, and
+    # each stat over the Windows bind mount costs ~1.6 ms (≈150× native). The host copy of
+    # vendor/ is only for IDE autocomplete; refresh it with `composer ide-vendor` (README).
+    - platform-vendor:/var/www/aisg/apps/platform/vendor
+  # Laravel reads apps/platform/.env itself; only container-specific hosts are overridden here
+  # (process env beats .env, and would also beat phpunit.xml, so keep this list minimal).
+  environment:
+    DB_CONNECTION: pgsql
+    DB_HOST: pgsql
+    DB_PORT: 5432
+    REDIS_HOST: redis
+    OLLAMA_HOST: http://ollama:11434
+    REVERB_HOST: reverb
+    REVERB_PORT: 8080
+    REVERB_SCHEME: http
+  depends_on:
+    pgsql:
+      condition: service_healthy
+    redis:
+      condition: service_healthy
+
+services:
+  app:
+    <<: *platform
+    command: php-fpm -R
+
+  nginx:
+    image: nginx:1.27-alpine
+    ports:
+      - "${APP_PORT:-8000}:80"
+    volumes:
+      - ./apps/platform/public:/var/www/aisg/apps/platform/public:ro
+      # Target of the public/storage symlink (uploaded images).
+      - ./apps/platform/storage/app/public:/var/www/aisg/apps/platform/storage/app/public:ro
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+
+  horizon:
+    <<: *platform
+    command: php artisan horizon
+    restart: unless-stopped
+
+  reverb:
+    <<: *platform
+    command: php artisan reverb:start --host=0.0.0.0 --port=8080
+    ports:
+      - "${REVERB_HOST_PORT:-8090}:8080"
+    restart: unless-stopped
+
+  scheduler:
+    <<: *platform
+    command: php artisan schedule:work
+    restart: unless-stopped
+
+  vite:
+    <<: *platform
+    command: npm run dev -- --host 0.0.0.0
+    ports:
+      - "${VITE_PORT:-5173}:5173"
+    environment:
+      DB_CONNECTION: pgsql
+      DB_HOST: pgsql
+      DB_PORT: 5432
+      REDIS_HOST: redis
+      REVERB_HOST: reverb
+      VITE_POLLING: "true"
+
+  pgsql:
+    image: postgres:16-alpine
+    ports:
+      - "${FORWARD_DB_PORT:-54320}:5432"
+    environment:
+      POSTGRES_DB: aisg
+      POSTGRES_USER: aisg
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - pgsql-data:/var/lib/postgresql/data
+      - ./docker/pgsql/create-testing-db.sql:/docker-entrypoint-initdb.d/10-create-testing-db.sql:ro
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "aisg", "-d", "aisg"]
+      interval: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "${FORWARD_REDIS_PORT:-63790}:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      retries: 10
+
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "${OLLAMA_PORT:-11434}:11434"
+    environment:
+      OLLAMA_KEEP_ALIVE: 10m
+      OLLAMA_NUM_PARALLEL: "1"
+    volumes:
+      - ollama-models:/root/.ollama
+
+  # Pulls the models configured in apps/platform/.env (idempotent, exits when done).
+  ollama-init:
+    image: ollama/ollama:latest
+    entrypoint: ["/bin/sh", "/pull-models.sh"]
+    env_file:
+      - ./apps/platform/.env
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    volumes:
+      - ./docker/ollama/pull-models.sh:/pull-models.sh:ro
+    depends_on:
+      - ollama
+    restart: "no"
+
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "${MAILPIT_UI_PORT:-8025}:8025"
+
+  # ---- Staging WordPress (pinned versions: docker/wordpress/versions.env) ----
+  wp-db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - wp-db-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 5s
+      retries: 20
+
+  wp:
+    image: wordpress:7.1.2-php8.3-apache
+    ports:
+      - "${WP_PORT:-8081}:80"
+    environment:
+      WORDPRESS_DB_HOST: wp-db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_ENVIRONMENT_TYPE', 'local');
+        define('FS_METHOD', 'direct');
+    volumes:
+      - wp-html:/var/www/html
+      - ./apps/wp-connector:/var/www/html/wp-content/plugins/aisg-connector
+      # Shared build inputs (the release ZIP copies them in; see PluginPackager).
+      - ./sections:/var/www/html/wp-content/plugins/aisg-connector/sections:ro
+      - ./packages/renderer-php:/var/www/html/wp-content/plugins/aisg-connector/lib/renderer-php:ro
+      - ./packages/section-styles/dist:/var/www/html/wp-content/plugins/aisg-connector/assets/runtime:ro
+    depends_on:
+      wp-db:
+        condition: service_healthy
+
+  wp-init:
+    image: wordpress:cli-php8.3
+    user: "33:33"
+    entrypoint: ["/bin/sh", "/wp-init.sh"]
+    env_file:
+      - ./docker/wordpress/versions.env
+    environment:
+      WORDPRESS_DB_HOST: wp-db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+      WP_URL: http://localhost:${WP_PORT:-8081}
+    volumes:
+      - wp-html:/var/www/html
+      - ./apps/wp-connector:/var/www/html/wp-content/plugins/aisg-connector
+      # Shared build inputs (the release ZIP copies them in; see PluginPackager).
+      - ./sections:/var/www/html/wp-content/plugins/aisg-connector/sections:ro
+      - ./packages/renderer-php:/var/www/html/wp-content/plugins/aisg-connector/lib/renderer-php:ro
+      - ./packages/section-styles/dist:/var/www/html/wp-content/plugins/aisg-connector/assets/runtime:ro
+      - ./docker/wordpress/wp-init.sh:/wp-init.sh:ro
+    depends_on:
+      wp-db:
+        condition: service_healthy
+      wp:
+        condition: service_started
+    restart: "no"
+
+volumes:
+  platform-vendor:
+  pgsql-data:
+  redis-data:
+  ollama-models:
+  wp-db-data:
+  wp-html:

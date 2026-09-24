@@ -1,0 +1,11 @@
+<section id="{{section.anchor}}" data-aisg-section="{{section.key}}" class="aisg-hero-centered {{#style.background_is_background}}tw-bg-background tw-text-text{{/style.background_is_background}}{{#style.background_is_surface}}tw-bg-surface tw-text-text{{/style.background_is_surface}}{{#style.background_is_primary}}tw-bg-primary tw-text-primary-contrast{{/style.background_is_primary}}">
+    <div class="tw-mx-auto tw-flex tw-max-w-3xl tw-flex-col tw-items-center tw-gap-6 tw-px-4 tw-text-center {{#style.size_is_md}}tw-py-16{{/style.size_is_md}}{{#style.size_is_lg}}tw-py-28{{/style.size_is_lg}}">
+        {{#content.eyebrow}}<p class="tw-text-sm tw-font-semibold tw-uppercase tw-tracking-wider tw-opacity-80">{{content.eyebrow}}</p>{{/content.eyebrow}}
+        <h1 class="tw-font-heading tw-text-4xl tw-font-bold tw-leading-tight md:tw-text-6xl">{{content.headline}}</h1>
+        {{#content.subheadline}}<p class="tw-max-w-prose tw-text-lg tw-opacity-80">{{content.subheadline}}</p>{{/content.subheadline}}
+        <div class="tw-flex tw-flex-wrap tw-justify-center tw-gap-3">
+            {{#style.background_is_primary}}{{#content.primary_cta.label}}<a href="{{content.primary_cta.href}}" class="tw-inline-flex tw-items-center tw-justify-center tw-rounded-aisg tw-px-6 tw-py-3 tw-font-semibold tw-no-underline tw-bg-primary-contrast tw-text-primary">{{content.primary_cta.label}}</a>{{/content.primary_cta.label}}{{/style.background_is_primary}}{{^style.background_is_primary}}{{#content.primary_cta.label}}<a href="{{content.primary_cta.href}}" class="tw-inline-flex tw-items-center tw-justify-center tw-rounded-aisg tw-px-6 tw-py-3 tw-font-semibold tw-no-underline tw-bg-primary tw-text-primary-contrast">{{content.primary_cta.label}}</a>{{/content.primary_cta.label}}{{/style.background_is_primary}}
+            {{#content.secondary_cta.label}}<a href="{{content.secondary_cta.href}}" class="tw-inline-flex tw-items-center tw-justify-center tw-rounded-aisg tw-px-6 tw-py-3 tw-font-semibold tw-no-underline tw-border tw-border-current">{{content.secondary_cta.label}}</a>{{/content.secondary_cta.label}}
+        </div>
+    </div>
+</section>

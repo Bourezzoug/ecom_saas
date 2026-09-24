@@ -1,0 +1,35 @@
+<section id="{{section.anchor}}" data-aisg-section="{{section.key}}" class="aisg-product-grid tw-py-section tw-text-text {{#style.background_is_background}}tw-bg-background{{/style.background_is_background}}{{#style.background_is_surface}}tw-bg-surface{{/style.background_is_surface}}">
+    <div class="tw-mx-auto tw-max-w-container tw-px-4">
+        <div class="tw-mb-8 tw-flex tw-flex-wrap tw-items-end tw-justify-between tw-gap-4">
+            <div class="tw-text-start">
+                <h2 class="tw-font-heading tw-text-3xl tw-font-bold">{{content.title}}</h2>
+                {{#content.subtitle}}
+                <p class="tw-mt-2 tw-max-w-prose tw-text-muted">{{content.subtitle}}</p>
+                {{/content.subtitle}}
+            </div>
+            {{#content.view_all.label}}
+            <a href="{{content.view_all.href}}" class="tw-font-semibold tw-text-primary tw-underline-offset-4 hover:tw-underline">{{content.view_all.label}}</a>
+            {{/content.view_all.label}}
+        </div>
+
+        <ul class="tw-grid tw-grid-cols-2 tw-gap-6 {{#style.columns_is_3}}md:tw-grid-cols-3{{/style.columns_is_3}}{{#style.columns_is_4}}md:tw-grid-cols-3 lg:tw-grid-cols-4{{/style.columns_is_4}}">
+            {{#data.products}}
+            <li class="tw-flex tw-flex-col tw-gap-3">
+                <a href="{{url}}" class="tw-block tw-overflow-hidden tw-rounded-aisg tw-bg-surface">
+                    {{#image.url}}
+                    <img src="{{image.url}}" alt="{{image.alt}}" class="tw-aspect-square tw-w-full tw-object-cover tw-transition-transform hover:tw-scale-105" loading="lazy">
+                    {{/image.url}}
+                    {{^image.url}}
+                    <div class="aisg-placeholder tw-aspect-square tw-w-full" role="img" aria-label="{{name}}"></div>
+                    {{/image.url}}
+                </a>
+                <div class="tw-flex tw-flex-1 tw-flex-col tw-gap-1 tw-text-start">
+                    <a href="{{url}}" class="tw-font-medium tw-no-underline hover:tw-underline">{{name}}</a>
+                    <div class="aisg-price tw-text-sm tw-font-semibold">{{{price_html}}}</div>
+                </div>
+                <a href="{{add_to_cart_url}}" class="tw-inline-flex tw-items-center tw-justify-center tw-rounded-aisg tw-bg-primary tw-px-4 tw-py-2 tw-text-sm tw-font-semibold tw-text-primary-contrast tw-no-underline" rel="nofollow">{{content.add_to_cart_label}}</a>
+            </li>
+            {{/data.products}}
+        </ul>
+    </div>
+</section>

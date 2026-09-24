@@ -1,0 +1,33 @@
+<header id="{{section.anchor}}" data-aisg-section="{{section.key}}" x-data="aisgDisclosure" class="aisg-header tw-z-40 tw-w-full tw-border-b tw-border-border {{#style.sticky}}tw-sticky tw-top-0{{/style.sticky}} {{#style.background_is_background}}tw-bg-background tw-text-text{{/style.background_is_background}}{{#style.background_is_surface}}tw-bg-surface tw-text-text{{/style.background_is_surface}}{{#style.background_is_primary}}tw-bg-primary tw-text-primary-contrast{{/style.background_is_primary}}">
+    {{#content.announcement}}
+    <div class="tw-bg-primary tw-px-4 tw-py-2 tw-text-center tw-text-sm tw-font-medium tw-text-primary-contrast">{{content.announcement}}</div>
+    {{/content.announcement}}
+    <div class="tw-mx-auto tw-flex tw-h-16 tw-max-w-container tw-items-center tw-justify-between tw-gap-6 tw-px-4">
+        <a href="{{data.menu.home_href}}" class="tw-flex tw-items-center tw-gap-2 tw-font-heading tw-text-xl tw-font-bold tw-no-underline">
+            {{#content.logo.url}}<img src="{{content.logo.url}}" alt="{{site.name}}" class="tw-h-9 tw-w-auto">{{/content.logo.url}}
+            {{^content.logo.url}}<span>{{site.name}}</span>{{/content.logo.url}}
+        </a>
+
+        <nav class="tw-hidden tw-items-center tw-gap-6 md:tw-flex" aria-label="{{content.menu_label}}">
+            {{#data.menu.items}}
+            <a href="{{href}}" class="tw-text-sm tw-font-medium tw-no-underline tw-opacity-80 hover:tw-opacity-100">{{label}}</a>
+            {{/data.menu.items}}
+        </nav>
+
+        <div class="tw-flex tw-items-center tw-gap-3">
+            <a href="{{data.menu.cart_href}}" class="tw-inline-flex tw-items-center tw-gap-2 tw-rounded-aisg tw-border tw-border-current tw-px-3 tw-py-1.5 tw-text-sm tw-font-medium tw-no-underline">
+                <span class="aisg-icon aisg-icon--bag" aria-hidden="true"></span>
+                <span>{{content.cart_label}}</span>
+            </a>
+            <button type="button" class="tw-inline-flex tw-items-center tw-rounded-aisg tw-p-2 md:tw-hidden" @click="toggle()" :aria-expanded="open.toString()" aria-label="{{content.menu_label}}">
+                <span class="aisg-icon aisg-icon--menu" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+
+    <nav x-show="open" x-cloak class="tw-border-t tw-border-border tw-px-4 tw-py-3 md:tw-hidden" aria-label="{{content.menu_label}}">
+        {{#data.menu.items}}
+        <a href="{{href}}" class="tw-block tw-py-2 tw-font-medium tw-no-underline">{{label}}</a>
+        {{/data.menu.items}}
+    </nav>
+</header>

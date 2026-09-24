@@ -1,0 +1,37 @@
+<section id="{{section.anchor}}" data-aisg-section="{{section.key}}" x-data="aisgGallery" class="aisg-lp-hero tw-py-12 md:tw-py-16 {{#style.background_is_background}}tw-bg-background tw-text-text{{/style.background_is_background}}{{#style.background_is_surface}}tw-bg-surface tw-text-text{{/style.background_is_surface}}">
+    <div class="tw-mx-auto tw-grid tw-max-w-container tw-gap-10 tw-px-4 md:tw-grid-cols-2">
+        <div class="tw-flex tw-flex-col tw-gap-3">
+            {{#data.product.gallery}}
+            <div x-show="isActive({{_index}})" {{^_first}}x-cloak{{/_first}} class="tw-overflow-hidden tw-rounded-aisg">{{#url}}<img src="{{url}}" alt="{{alt}}" class="tw-aspect-square tw-h-full tw-w-full tw-object-cover">{{/url}}{{^url}}<div class="aisg-placeholder tw-aspect-square tw-w-full" role="img" aria-label="{{alt}}"></div>{{/url}}</div>
+            {{/data.product.gallery}}
+            <div class="tw-grid tw-grid-cols-4 tw-gap-3">
+                {{#data.product.gallery}}
+                <button type="button" class="tw-overflow-hidden tw-rounded-aisg tw-border-2 tw-bg-transparent tw-p-0" :class="isActive({{_index}}) ? 'tw-border-primary' : 'tw-border-transparent'" @click="select({{_index}})" aria-label="{{alt}}">
+                    {{#url}}<img src="{{url}}" alt="" class="tw-aspect-square tw-w-full tw-object-cover" loading="lazy">{{/url}}{{^url}}<span class="aisg-placeholder tw-block tw-aspect-square tw-w-full"></span>{{/url}}
+                </button>
+                {{/data.product.gallery}}
+            </div>
+        </div>
+        <div class="tw-flex tw-flex-col tw-gap-5 tw-text-start">
+            {{#content.badge}}<span class="tw-w-fit tw-rounded-full tw-bg-accent tw-px-3 tw-py-1 tw-text-xs tw-font-semibold tw-uppercase tw-tracking-wide tw-text-text">{{content.badge}}</span>{{/content.badge}}
+            <h1 class="tw-font-heading tw-text-3xl tw-font-bold md:tw-text-4xl">{{#content.title}}{{content.title}}{{/content.title}}{{^content.title}}{{data.product.name}}{{/content.title}}</h1>
+            <div class="aisg-price tw-text-2xl tw-font-bold">{{{data.product.price_html}}}</div>
+            {{#content.pitch}}<p class="tw-text-lg tw-text-muted">{{content.pitch}}</p>{{/content.pitch}}
+            {{#content.bullets.0}}<ul class="tw-flex tw-flex-col tw-gap-2">{{#content.bullets}}<li class="tw-flex tw-items-center tw-gap-2"><span class="aisg-icon aisg-icon--{{icon}} tw-text-primary" aria-hidden="true"></span><span>{{text}}</span></li>{{/content.bullets}}</ul>{{/content.bullets.0}}
+            <form action="{{data.product.add_to_cart_url}}" method="post" class="tw-flex tw-flex-col tw-gap-4">
+                {{#data.product.attributes}}
+                <label class="tw-flex tw-flex-col tw-gap-1 tw-text-sm tw-font-medium">{{name}}
+                    <select name="attribute_{{slug}}" class="tw-rounded-aisg tw-border tw-border-border tw-bg-background tw-px-3 tw-py-2 tw-text-text">{{#options}}<option value="{{value}}">{{label}}</option>{{/options}}</select>
+                </label>
+                {{/data.product.attributes}}
+                <div class="tw-flex tw-items-end tw-gap-3">
+                    <label class="tw-flex tw-flex-col tw-gap-1 tw-text-sm tw-font-medium">{{content.quantity_label}}
+                        <input type="number" name="quantity" value="1" min="1" class="tw-w-20 tw-rounded-aisg tw-border tw-border-border tw-bg-background tw-px-3 tw-py-2 tw-text-text">
+                    </label>
+                    <button type="submit" name="add-to-cart" value="{{data.product.id}}" class="tw-flex-1 tw-rounded-aisg tw-bg-primary tw-px-6 tw-py-3 tw-font-semibold tw-text-primary-contrast">{{content.add_to_cart_label}}</button>
+                </div>
+            </form>
+            {{#content.trust_line}}<p class="tw-flex tw-items-center tw-gap-2 tw-text-sm tw-text-muted"><span class="aisg-icon aisg-icon--lock" aria-hidden="true"></span>{{content.trust_line}}</p>{{/content.trust_line}}
+        </div>
+    </div>
+</section>

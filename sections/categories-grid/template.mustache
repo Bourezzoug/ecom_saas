@@ -1,0 +1,18 @@
+<section id="{{section.anchor}}" data-aisg-section="{{section.key}}" class="aisg-categories tw-py-section {{#style.background_is_background}}tw-bg-background tw-text-text{{/style.background_is_background}}{{#style.background_is_surface}}tw-bg-surface tw-text-text{{/style.background_is_surface}}">
+    <div class="tw-mx-auto tw-max-w-container tw-px-4">
+        <div class="tw-mb-8 tw-text-start">
+            <h2 class="tw-font-heading tw-text-3xl tw-font-bold">{{content.title}}</h2>
+            {{#content.subtitle}}<p class="tw-mt-2 tw-max-w-prose tw-text-muted">{{content.subtitle}}</p>{{/content.subtitle}}
+        </div>
+        <ul class="tw-grid tw-grid-cols-2 tw-gap-6 {{#style.columns_is_3}}md:tw-grid-cols-3{{/style.columns_is_3}}{{#style.columns_is_4}}md:tw-grid-cols-4{{/style.columns_is_4}}">
+            {{#data.categories}}
+            <li>
+                <a href="{{url}}" class="tw-group tw-relative tw-block tw-overflow-hidden tw-rounded-aisg tw-no-underline">
+                    {{#image.url}}<img src="{{image.url}}" alt="{{image.alt}}" class="tw-aspect-[4/5] tw-h-full tw-w-full tw-object-cover" loading="lazy">{{/image.url}}{{^image.url}}<div class="aisg-placeholder tw-aspect-[4/5] tw-w-full" role="img" aria-label="{{name}}"></div>{{/image.url}}
+                    <span class="tw-absolute tw-inset-x-0 tw-bottom-0 tw-bg-gradient-to-t tw-from-black/70 tw-to-transparent tw-p-4 tw-text-start tw-text-lg tw-font-semibold tw-text-white">{{name}}</span>
+                </a>
+            </li>
+            {{/data.categories}}
+        </ul>
+    </div>
+</section>

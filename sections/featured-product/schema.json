@@ -1,0 +1,147 @@
+{
+    "$schema": "../_meta-schema/section.schema.json",
+    "key": "featured-product",
+    "version": 1,
+    "fields": [
+        {
+            "name": "eyebrow",
+            "type": "text",
+            "label": "Eyebrow",
+            "default": "Featured",
+            "constraints": {
+                "maxLength": 40
+            },
+            "ai": {
+                "generate": true,
+                "hint": "1 to 3 word label, e.g. Our bestseller"
+            }
+        },
+        {
+            "name": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "Meet our favourite",
+            "constraints": {
+                "maxLength": 80,
+                "minLength": 2
+            },
+            "required": true,
+            "ai": {
+                "generate": true,
+                "hint": "Headline about the featured product"
+            }
+        },
+        {
+            "name": "description",
+            "type": "textarea",
+            "label": "Description",
+            "default": "A customer favourite, made with the details that matter.",
+            "constraints": {
+                "maxLength": 300
+            },
+            "ai": {
+                "generate": true,
+                "hint": "Two sentences on why shoppers love this product"
+            }
+        },
+        {
+            "name": "bullets",
+            "type": "repeater",
+            "label": "Key benefits",
+            "item_label": "{{text}}",
+            "constraints": {
+                "minItems": 0,
+                "maxItems": 4
+            },
+            "default": [],
+            "ai": {
+                "generate": true,
+                "hint": "Short benefit points about the product"
+            },
+            "fields": [
+                {
+                    "name": "icon",
+                    "type": "icon",
+                    "label": "Icon",
+                    "default": "check",
+                    "ai": {
+                        "generate": true,
+                        "hint": "Icon that matches the text"
+                    }
+                },
+                {
+                    "name": "text",
+                    "type": "text",
+                    "label": "Text",
+                    "default": "",
+                    "constraints": {
+                        "maxLength": 60
+                    },
+                    "ai": {
+                        "generate": true,
+                        "hint": "2 to 7 words"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "add_to_cart_label",
+            "type": "text",
+            "label": "Add to cart label",
+            "default": "Add to cart",
+            "constraints": {
+                "maxLength": 24
+            },
+            "ai": {
+                "generate": true,
+                "hint": "Add to cart button text, 1 to 3 words"
+            }
+        },
+        {
+            "name": "product",
+            "type": "product",
+            "label": "Product",
+            "default": null
+        }
+    ],
+    "style": [
+        {
+            "name": "layout",
+            "type": "select",
+            "label": "Image position",
+            "default": "start",
+            "options": [
+                {
+                    "value": "start",
+                    "label": "Start"
+                },
+                {
+                    "value": "end",
+                    "label": "End"
+                }
+            ]
+        },
+        {
+            "name": "background",
+            "type": "select",
+            "label": "Background",
+            "default": "surface",
+            "options": [
+                {
+                    "value": "background",
+                    "label": "Page background"
+                },
+                {
+                    "value": "surface",
+                    "label": "Surface"
+                }
+            ]
+        }
+    ],
+    "data": {
+        "product": {
+            "resolver": "product",
+            "from_field": "product"
+        }
+    }
+}

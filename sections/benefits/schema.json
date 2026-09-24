@@ -1,0 +1,140 @@
+{
+    "$schema": "../_meta-schema/section.schema.json",
+    "key": "benefits",
+    "version": 1,
+    "fields": [
+        {
+            "name": "eyebrow",
+            "type": "text",
+            "label": "Eyebrow",
+            "default": "",
+            "constraints": {
+                "maxLength": 40
+            },
+            "ai": {
+                "generate": true,
+                "hint": "1 to 3 word label"
+            }
+        },
+        {
+            "name": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "Why shop with us",
+            "constraints": {
+                "maxLength": 60,
+                "minLength": 2
+            },
+            "required": true,
+            "ai": {
+                "generate": true,
+                "hint": "Short section title"
+            }
+        },
+        {
+            "name": "items",
+            "type": "repeater",
+            "label": "Benefits",
+            "item_label": "{{title}}",
+            "constraints": {
+                "minItems": 3,
+                "maxItems": 6
+            },
+            "default": [
+                {
+                    "icon": "truck",
+                    "title": "Fast delivery",
+                    "text": "Your order is on its way quickly."
+                },
+                {
+                    "icon": "shield",
+                    "title": "Secure checkout",
+                    "text": "Pay safely with trusted methods."
+                },
+                {
+                    "icon": "heart",
+                    "title": "Made with care",
+                    "text": "Every product is carefully chosen."
+                }
+            ],
+            "ai": {
+                "generate": true,
+                "hint": "The store's real selling points, no invented numbers"
+            },
+            "fields": [
+                {
+                    "name": "icon",
+                    "type": "icon",
+                    "label": "Icon",
+                    "default": "check",
+                    "ai": {
+                        "generate": true,
+                        "hint": "Icon that matches the text"
+                    }
+                },
+                {
+                    "name": "title",
+                    "type": "text",
+                    "label": "Title",
+                    "default": "",
+                    "constraints": {
+                        "maxLength": 50,
+                        "minLength": 2
+                    },
+                    "ai": {
+                        "generate": true,
+                        "hint": "2 to 5 words"
+                    }
+                },
+                {
+                    "name": "text",
+                    "type": "textarea",
+                    "label": "Text",
+                    "default": "",
+                    "constraints": {
+                        "maxLength": 160
+                    },
+                    "ai": {
+                        "generate": true,
+                        "hint": "One short sentence"
+                    }
+                }
+            ]
+        }
+    ],
+    "style": [
+        {
+            "name": "columns",
+            "type": "select",
+            "label": "Columns",
+            "default": "3",
+            "options": [
+                {
+                    "value": "3",
+                    "label": "3"
+                },
+                {
+                    "value": "4",
+                    "label": "4"
+                }
+            ]
+        },
+        {
+            "name": "background",
+            "type": "select",
+            "label": "Background",
+            "default": "background",
+            "options": [
+                {
+                    "value": "background",
+                    "label": "Page background"
+                },
+                {
+                    "value": "surface",
+                    "label": "Surface"
+                }
+            ]
+        }
+    ],
+    "data": {}
+}

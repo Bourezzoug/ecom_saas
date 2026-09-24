@@ -1,0 +1,18 @@
+{
+    "key": "faq",
+    "name": "FAQ accordion",
+    "category": "content",
+    "placement": "body",
+    "page_types": [
+        "home",
+        "about",
+        "contact",
+        "faq",
+        "landing",
+        "custom"
+    ],
+    "requires_woocommerce": false,
+    "interactive": true,
+    "thumbnail": null,
+    "planner_description": "Questions and answers in an accordion, e.g. shipping, returns, product care."
+}

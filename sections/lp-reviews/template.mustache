@@ -1,0 +1,18 @@
+<section id="{{section.anchor}}" data-aisg-section="{{section.key}}" class="aisg-lp-reviews tw-py-section {{#style.background_is_background}}tw-bg-background tw-text-text{{/style.background_is_background}}{{#style.background_is_surface}}tw-bg-surface tw-text-text{{/style.background_is_surface}}">
+    <div class="tw-mx-auto tw-max-w-container tw-px-4">
+        <div class="tw-mb-10 tw-flex tw-flex-col tw-items-center tw-gap-2 tw-text-center">
+            <h2 class="tw-font-heading tw-text-3xl tw-font-bold">{{content.title}}</h2>
+            {{#content.summary}}<p class="tw-text-muted">{{content.summary}}</p>{{/content.summary}}
+        </div>
+        <ul class="tw-grid tw-gap-6 md:tw-grid-cols-2">
+            {{#content.items}}
+            <li class="tw-flex tw-flex-col tw-gap-3 tw-rounded-aisg tw-border tw-border-border tw-p-6 tw-text-start">
+                <span class="tw-flex tw-gap-0.5 tw-text-accent" aria-label="{{rating}} / 5">{{#rating_is_5}}<span class="aisg-icon aisg-icon--star"></span><span class="aisg-icon aisg-icon--star"></span><span class="aisg-icon aisg-icon--star"></span><span class="aisg-icon aisg-icon--star"></span><span class="aisg-icon aisg-icon--star"></span>{{/rating_is_5}}{{#rating_is_4}}<span class="aisg-icon aisg-icon--star"></span><span class="aisg-icon aisg-icon--star"></span><span class="aisg-icon aisg-icon--star"></span><span class="aisg-icon aisg-icon--star"></span>{{/rating_is_4}}</span>
+                {{#headline}}<p class="tw-font-semibold">{{headline}}</p>{{/headline}}
+                <p class="tw-text-muted">{{quote}}</p>
+                <p class="tw-flex tw-items-center tw-gap-2 tw-text-sm tw-font-medium"><span class="aisg-icon aisg-icon--check tw-text-primary" aria-hidden="true"></span>{{name}}</p>
+            </li>
+            {{/content.items}}
+        </ul>
+    </div>
+</section>

@@ -1,0 +1,9 @@
+<section id="{{section.anchor}}" data-aisg-section="{{section.key}}" class="aisg-cta tw-py-16 {{#style.background_is_primary}}tw-bg-primary tw-text-primary-contrast{{/style.background_is_primary}}{{#style.background_is_accent}}tw-bg-accent tw-text-text{{/style.background_is_accent}}{{#style.background_is_text}}tw-bg-text tw-text-background{{/style.background_is_text}}">
+    <div class="tw-mx-auto tw-flex tw-max-w-container tw-flex-col tw-items-center tw-justify-between tw-gap-6 tw-px-4 tw-text-center md:tw-flex-row md:tw-text-start">
+        <div class="tw-flex tw-flex-col tw-gap-2">
+            <h2 class="tw-font-heading tw-text-2xl md:tw-text-3xl tw-font-bold">{{content.title}}</h2>
+            {{#content.text}}<p class="tw-opacity-90">{{content.text}}</p>{{/content.text}}
+        </div>
+        {{#content.cta.label}}<a href="{{content.cta.href}}" class="tw-inline-flex tw-shrink-0 tw-items-center tw-rounded-aisg tw-bg-background tw-px-6 tw-py-3 tw-font-semibold tw-text-text tw-no-underline">{{content.cta.label}}</a>{{/content.cta.label}}
+    </div>
+</section>

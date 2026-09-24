@@ -1,0 +1,13 @@
+{
+    "name": "@aisg/section-styles",
+    "private": true,
+    "description": "Compiled CSS + Alpine runtime for AISG sections, shipped to the editor preview and the WordPress connector.",
+    "scripts": {
+        "build": "node scripts/build-icons.mjs && tailwindcss -c tailwind.config.cjs -i src/sections.css -o dist/sections.css --minify && node scripts/copy-runtime.mjs",
+        "watch": "tailwindcss -c tailwind.config.cjs -i src/sections.css -o dist/sections.css --watch"
+    },
+    "devDependencies": {
+        "alpinejs": "^3.14.0",
+        "tailwindcss": "^3.4.17"
+    }
+}

@@ -1,0 +1,83 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://aisg.local/schemas/meta.schema.json",
+    "title": "AISG section meta.json",
+    "type": "object",
+    "required": [
+        "key",
+        "name",
+        "category",
+        "placement",
+        "page_types",
+        "requires_woocommerce",
+        "planner_description"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "key": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "name": {
+            "type": "string",
+            "minLength": 1
+        },
+        "category": {
+            "enum": [
+                "header",
+                "hero",
+                "commerce",
+                "social_proof",
+                "content",
+                "cta",
+                "footer",
+                "landing"
+            ]
+        },
+        "variant_of": {
+            "type": "string"
+        },
+        "placement": {
+            "enum": [
+                "header",
+                "body",
+                "footer"
+            ]
+        },
+        "page_types": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+                "enum": [
+                    "home",
+                    "about",
+                    "contact",
+                    "faq",
+                    "landing",
+                    "custom"
+                ]
+            }
+        },
+        "requires_woocommerce": {
+            "type": "boolean"
+        },
+        "interactive": {
+            "type": "boolean"
+        },
+        "thumbnail": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "planner_description": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 200
+        },
+        "review_required": {
+            "type": "boolean",
+            "description": "Section may contain AI example claims (reviews, guarantees, comparisons) that the store owner must verify before publishing."
+        }
+    }
+}

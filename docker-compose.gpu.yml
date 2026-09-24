@@ -1,0 +1,10 @@
+# NVIDIA GPU passthrough for Ollama. Enable via COMPOSE_FILE in the root .env (see .env.example).
+services:
+  ollama:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

@@ -1,0 +1,103 @@
+{
+    "$schema": "../_meta-schema/section.schema.json",
+    "key": "hero-split",
+    "version": 1,
+    "fields": [
+        {
+            "name": "eyebrow",
+            "type": "text",
+            "label": "Eyebrow",
+            "default": "New collection",
+            "constraints": { "maxLength": 40 },
+            "ai": { "generate": true, "hint": "2 to 4 word label above the headline" }
+        },
+        {
+            "name": "headline",
+            "type": "text",
+            "label": "Headline",
+            "required": true,
+            "default": "Everyday essentials, done right",
+            "constraints": { "minLength": 5, "maxLength": 80 },
+            "ai": { "generate": true, "hint": "Benefit-led headline, no final punctuation" }
+        },
+        {
+            "name": "subheadline",
+            "type": "textarea",
+            "label": "Subheadline",
+            "default": "Thoughtfully made products that last, delivered to your door.",
+            "constraints": { "maxLength": 200 },
+            "ai": { "generate": true, "hint": "One or two sentences that expand on the headline" }
+        },
+        {
+            "name": "primary_cta",
+            "type": "link",
+            "label": "Primary button",
+            "default": { "label": "Shop now", "target": { "kind": "system", "value": "shop" } },
+            "constraints": { "maxLength": 24 },
+            "ai": { "generate": true, "hint": "Button text, 1 to 3 words" }
+        },
+        {
+            "name": "secondary_cta",
+            "type": "link",
+            "label": "Secondary button",
+            "default": { "label": "", "target": { "kind": "url", "value": "#" } },
+            "constraints": { "maxLength": 24 }
+        },
+        {
+            "name": "image",
+            "type": "image",
+            "label": "Image",
+            "default": { "asset_id": null, "url": null, "alt": "" }
+        },
+        {
+            "name": "highlights",
+            "type": "repeater",
+            "label": "Highlights",
+            "item_label": "{{text}}",
+            "constraints": { "minItems": 0, "maxItems": 3 },
+            "default": [],
+            "ai": { "generate": true, "hint": "Short reassurance points such as free shipping or guarantees" },
+            "fields": [
+                {
+                    "name": "icon",
+                    "type": "icon",
+                    "label": "Icon",
+                    "default": "check",
+                    "ai": { "generate": true, "hint": "Icon that matches the text" }
+                },
+                {
+                    "name": "text",
+                    "type": "text",
+                    "label": "Text",
+                    "default": "",
+                    "constraints": { "maxLength": 40 },
+                    "ai": { "generate": true, "hint": "2 to 5 words" }
+                }
+            ]
+        }
+    ],
+    "style": [
+        {
+            "name": "layout",
+            "type": "select",
+            "label": "Image position",
+            "default": "end",
+            "options": [
+                { "value": "start", "label": "Start" },
+                { "value": "end", "label": "End" }
+            ]
+        },
+        {
+            "name": "background",
+            "type": "select",
+            "label": "Background",
+            "default": "surface",
+            "options": [
+                { "value": "background", "label": "Page background" },
+                { "value": "surface", "label": "Surface" },
+                { "value": "primary", "label": "Primary colour" }
+            ]
+        }
+    ],
+    "data": {}
+}

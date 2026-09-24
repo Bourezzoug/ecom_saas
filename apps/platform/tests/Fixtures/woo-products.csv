@@ -1,0 +1,7 @@
+ID,Type,SKU,Name,Published,"Is featured?","Short description",Description,"In stock?",Stock,"Sale price","Regular price",Categories,Images,Parent,"Attribute 1 name","Attribute 1 value(s)"
+101,simple,MUG-01,Speckled Morning Mug,1,1,"Wheel-thrown stoneware mug.","<p>Glazed by hand in small batches.</p>\n<p>Dishwasher safe.</p>",1,12,,24.00,"Mugs > Everyday",,,,
+102,simple,MUG-02,Midnight Blue Mug,1,1,"Deep blue glaze for slow evenings.","A cosy evening mug.",1,,19.00,26.00,"Mugs > Everyday, Sale",,,,
+103,variable,SET-01,Espresso Cup Set,1,0,"Two espresso cups and saucers.","Choose your colour.",1,,,,Gifts,,,Colour,"Sand, Charcoal"
+104,variation,SET-01-SAND,,1,0,,,1,,,32.00,,,id:103,Colour,Sand
+105,variation,SET-01-CHAR,,1,0,,,0,,,34.00,,,id:103,Colour,Charcoal
+106,grouped,GRP-1,Ignored Group,1,0,,,1,,,,,,,,

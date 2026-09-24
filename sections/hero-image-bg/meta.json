@@ -1,0 +1,16 @@
+{
+    "key": "hero-image-bg",
+    "name": "Hero — full image",
+    "category": "hero",
+    "placement": "body",
+    "page_types": [
+        "home",
+        "about",
+        "landing",
+        "custom"
+    ],
+    "requires_woocommerce": false,
+    "interactive": false,
+    "thumbnail": null,
+    "planner_description": "Headline and button over a full-width background photo. Strong visual opening."
+}

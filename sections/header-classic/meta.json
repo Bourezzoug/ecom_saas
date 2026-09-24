@@ -1,0 +1,11 @@
+{
+    "key": "header-classic",
+    "name": "Header — classic",
+    "category": "header",
+    "placement": "header",
+    "page_types": [],
+    "requires_woocommerce": false,
+    "interactive": true,
+    "thumbnail": null,
+    "planner_description": "Store name, main menu and cart link, optional announcement bar."
+}

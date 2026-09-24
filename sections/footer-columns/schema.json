@@ -1,0 +1,69 @@
+{
+    "$schema": "../_meta-schema/section.schema.json",
+    "key": "footer-columns",
+    "version": 1,
+    "fields": [
+        {
+            "name": "about",
+            "type": "textarea",
+            "label": "About text",
+            "default": "",
+            "constraints": { "maxLength": 240 },
+            "ai": { "generate": true, "hint": "Two sentences about the store and what makes it special" }
+        },
+        {
+            "name": "menu_title",
+            "type": "text",
+            "label": "Menu column title",
+            "default": "Explore",
+            "constraints": { "maxLength": 30 },
+            "ai": { "generate": true, "hint": "1 or 2 words, e.g. Explore" }
+        },
+        {
+            "name": "contact_title",
+            "type": "text",
+            "label": "Contact column title",
+            "default": "Contact",
+            "constraints": { "maxLength": 30 },
+            "ai": { "generate": true, "hint": "1 or 2 words, e.g. Contact us" }
+        },
+        {
+            "name": "contact_email",
+            "type": "text",
+            "label": "Contact email",
+            "default": "",
+            "constraints": { "maxLength": 120 }
+        },
+        {
+            "name": "contact_phone",
+            "type": "text",
+            "label": "Contact phone",
+            "default": "",
+            "constraints": { "maxLength": 40 }
+        },
+        {
+            "name": "legal",
+            "type": "text",
+            "label": "Copyright line",
+            "default": "All rights reserved.",
+            "constraints": { "maxLength": 80 },
+            "ai": { "generate": true, "hint": "Short phrase like All rights reserved" }
+        }
+    ],
+    "style": [
+        {
+            "name": "background",
+            "type": "select",
+            "label": "Background",
+            "default": "text",
+            "options": [
+                { "value": "surface", "label": "Surface" },
+                { "value": "text", "label": "Dark (text colour)" },
+                { "value": "primary", "label": "Primary colour" }
+            ]
+        }
+    ],
+    "data": {
+        "menu": { "resolver": "menu" }
+    }
+}

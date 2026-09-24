@@ -1,0 +1,54 @@
+{
+    "$schema": "../_meta-schema/section.schema.json",
+    "key": "header-classic",
+    "version": 1,
+    "fields": [
+        {
+            "name": "announcement",
+            "type": "text",
+            "label": "Announcement bar",
+            "default": "",
+            "constraints": { "maxLength": 80 },
+            "ai": { "generate": true, "hint": "Short promo line shown above the header, e.g. a shipping or discount offer. No emojis" }
+        },
+        {
+            "name": "logo",
+            "type": "image",
+            "label": "Logo",
+            "default": { "asset_id": null, "url": null, "alt": "" }
+        },
+        {
+            "name": "cart_label",
+            "type": "text",
+            "label": "Cart label",
+            "default": "Cart",
+            "constraints": { "maxLength": 20 },
+            "ai": { "generate": true, "hint": "The word for a shopping cart, one word" }
+        },
+        {
+            "name": "menu_label",
+            "type": "text",
+            "label": "Mobile menu label",
+            "default": "Menu",
+            "constraints": { "maxLength": 20 },
+            "ai": { "generate": true, "hint": "The word for menu, one word" }
+        }
+    ],
+    "style": [
+        {
+            "name": "background",
+            "type": "select",
+            "label": "Background",
+            "default": "background",
+            "options": [
+                { "value": "background", "label": "Page background" },
+                { "value": "surface", "label": "Surface" },
+                { "value": "primary", "label": "Primary colour" }
+            ]
+        },
+        { "name": "sticky", "type": "boolean", "label": "Stick to top", "default": true }
+    ],
+    "data": {
+        "menu": { "resolver": "menu" }
+    }
+}

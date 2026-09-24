@@ -1,0 +1,14 @@
+<section id="{{section.anchor}}" data-aisg-section="{{section.key}}" class="aisg-featured-product tw-py-section {{#style.background_is_background}}tw-bg-background tw-text-text{{/style.background_is_background}}{{#style.background_is_surface}}tw-bg-surface tw-text-text{{/style.background_is_surface}}">
+    <div class="tw-mx-auto tw-grid tw-max-w-container tw-items-center tw-gap-10 tw-px-4 md:tw-grid-cols-2">
+        <a href="{{data.product.url}}" class="tw-block tw-overflow-hidden tw-rounded-aisg {{#style.layout_is_end}}md:tw-order-last{{/style.layout_is_end}}">{{#data.product.image.url}}<img src="{{data.product.image.url}}" alt="{{data.product.image.alt}}" class="tw-aspect-square tw-h-full tw-w-full tw-object-cover" loading="lazy">{{/data.product.image.url}}{{^data.product.image.url}}<div class="aisg-placeholder tw-aspect-square tw-w-full" role="img" aria-label="{{data.product.name}}"></div>{{/data.product.image.url}}</a>
+        <div class="tw-flex tw-flex-col tw-gap-4 tw-text-start">
+            {{#content.eyebrow}}<p class="tw-text-sm tw-font-semibold tw-uppercase tw-tracking-wider tw-text-primary">{{content.eyebrow}}</p>{{/content.eyebrow}}
+            <h2 class="tw-font-heading tw-text-3xl md:tw-text-4xl tw-font-bold">{{content.title}}</h2>
+            <p class="tw-text-xl tw-font-semibold">{{data.product.name}}</p>
+            {{#content.description}}<p class="tw-text-muted">{{content.description}}</p>{{/content.description}}
+            {{#content.bullets.0}}<ul class="tw-flex tw-flex-col tw-gap-2">{{#content.bullets}}<li class="tw-flex tw-items-center tw-gap-2"><span class="aisg-icon aisg-icon--{{icon}} tw-text-primary" aria-hidden="true"></span><span>{{text}}</span></li>{{/content.bullets}}</ul>{{/content.bullets.0}}
+            <div class="aisg-price tw-text-2xl tw-font-bold">{{{data.product.price_html}}}</div>
+            <a href="{{data.product.add_to_cart_url}}" class="tw-inline-flex tw-w-fit tw-items-center tw-rounded-aisg tw-bg-primary tw-px-8 tw-py-3 tw-font-semibold tw-text-primary-contrast tw-no-underline" rel="nofollow">{{content.add_to_cart_label}}</a>
+        </div>
+    </div>
+</section>

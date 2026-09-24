@@ -1,0 +1,15 @@
+{
+    "key": "lp-comparison",
+    "name": "Landing — comparison",
+    "category": "landing",
+    "placement": "body",
+    "page_types": [
+        "landing",
+        "custom"
+    ],
+    "requires_woocommerce": false,
+    "interactive": false,
+    "review_required": true,
+    "thumbnail": null,
+    "planner_description": "Table comparing the product with typical alternatives, feature by feature."
+}

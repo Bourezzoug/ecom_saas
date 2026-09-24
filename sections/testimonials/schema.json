@@ -1,0 +1,125 @@
+{
+    "$schema": "../_meta-schema/section.schema.json",
+    "key": "testimonials",
+    "version": 1,
+    "fields": [
+        {
+            "name": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "What our customers say",
+            "constraints": {
+                "maxLength": 60,
+                "minLength": 2
+            },
+            "required": true,
+            "ai": {
+                "generate": true,
+                "hint": "Short section title"
+            }
+        },
+        {
+            "name": "items",
+            "type": "repeater",
+            "label": "Testimonials",
+            "item_label": "{{name}}",
+            "constraints": {
+                "minItems": 2,
+                "maxItems": 6
+            },
+            "default": [
+                {
+                    "quote": "Replace this with a real customer quote.",
+                    "name": "Customer name",
+                    "detail": "",
+                    "rating": "5"
+                },
+                {
+                    "quote": "Replace this with a real customer quote.",
+                    "name": "Customer name",
+                    "detail": "",
+                    "rating": "5"
+                },
+                {
+                    "quote": "Replace this with a real customer quote.",
+                    "name": "Customer name",
+                    "detail": "",
+                    "rating": "5"
+                }
+            ],
+            "ai": {
+                "generate": true,
+                "hint": "Example quotes in the voice of typical customers; they will be replaced by real reviews"
+            },
+            "fields": [
+                {
+                    "name": "quote",
+                    "type": "textarea",
+                    "label": "Quote",
+                    "default": "",
+                    "constraints": {
+                        "maxLength": 280,
+                        "minLength": 5
+                    },
+                    "ai": {
+                        "generate": true,
+                        "hint": "One or two sentences a satisfied customer might say about a specific product or experience"
+                    }
+                },
+                {
+                    "name": "name",
+                    "type": "text",
+                    "label": "Customer name",
+                    "default": "Customer name",
+                    "constraints": {
+                        "maxLength": 60
+                    }
+                },
+                {
+                    "name": "detail",
+                    "type": "text",
+                    "label": "Detail (city, product...)",
+                    "default": "",
+                    "constraints": {
+                        "maxLength": 60
+                    }
+                },
+                {
+                    "name": "rating",
+                    "type": "select",
+                    "label": "Rating",
+                    "default": "5",
+                    "options": [
+                        {
+                            "value": "5",
+                            "label": "5 stars"
+                        },
+                        {
+                            "value": "4",
+                            "label": "4 stars"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "style": [
+        {
+            "name": "background",
+            "type": "select",
+            "label": "Background",
+            "default": "surface",
+            "options": [
+                {
+                    "value": "background",
+                    "label": "Page background"
+                },
+                {
+                    "value": "surface",
+                    "label": "Surface"
+                }
+            ]
+        }
+    ],
+    "data": {}
+}

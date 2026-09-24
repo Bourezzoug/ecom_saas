@@ -1,0 +1,10 @@
+<section id="{{section.anchor}}" data-aisg-section="{{section.key}}" class="aisg-hero-image tw-relative tw-flex tw-min-h-[70vh] tw-items-center tw-overflow-hidden tw-bg-text">
+    {{#content.image.url}}<img src="{{content.image.url}}" alt="{{content.image.alt}}" class="tw-absolute tw-inset-0 tw-h-full tw-w-full tw-object-cover" loading="eager">{{/content.image.url}}
+    {{^content.image.url}}<div class="aisg-placeholder tw-absolute tw-inset-0" aria-hidden="true"></div>{{/content.image.url}}
+    <div class="tw-absolute tw-inset-0 {{#style.overlay_is_dark}}tw-bg-black/50{{/style.overlay_is_dark}}{{#style.overlay_is_light}}tw-bg-white/60{{/style.overlay_is_light}}" aria-hidden="true"></div>
+    <div class="tw-relative tw-mx-auto tw-flex tw-w-full tw-max-w-container tw-flex-col tw-gap-6 tw-px-4 tw-py-24 {{#style.align_is_center}}tw-items-center tw-text-center{{/style.align_is_center}}{{#style.align_is_start}}tw-items-start tw-text-start{{/style.align_is_start}} {{#style.overlay_is_dark}}tw-text-white{{/style.overlay_is_dark}}{{#style.overlay_is_light}}tw-text-text{{/style.overlay_is_light}}">
+        <h1 class="tw-max-w-3xl tw-font-heading tw-text-4xl tw-font-bold tw-leading-tight md:tw-text-6xl">{{content.headline}}</h1>
+        {{#content.subheadline}}<p class="tw-max-w-xl tw-text-lg tw-opacity-90">{{content.subheadline}}</p>{{/content.subheadline}}
+        {{#content.primary_cta.label}}<a href="{{content.primary_cta.href}}" class="tw-inline-flex tw-items-center tw-justify-center tw-rounded-aisg tw-px-6 tw-py-3 tw-font-semibold tw-no-underline tw-bg-primary tw-text-primary-contrast">{{content.primary_cta.label}}</a>{{/content.primary_cta.label}}
+    </div>
+</section>

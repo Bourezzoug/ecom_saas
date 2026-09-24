@@ -1,0 +1,17 @@
+{
+    "key": "cta-banner",
+    "name": "Call-to-action banner",
+    "category": "cta",
+    "placement": "body",
+    "page_types": [
+        "home",
+        "about",
+        "contact",
+        "landing",
+        "custom"
+    ],
+    "requires_woocommerce": false,
+    "interactive": false,
+    "thumbnail": null,
+    "planner_description": "Bold coloured banner with one message and one button, e.g. to push shoppers to the shop."
+}

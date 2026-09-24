@@ -1,0 +1,28 @@
+<footer id="{{section.anchor}}" data-aisg-section="{{section.key}}" class="aisg-footer tw-py-16 {{#style.background_is_surface}}tw-bg-surface tw-text-text{{/style.background_is_surface}}{{#style.background_is_text}}tw-bg-text tw-text-background{{/style.background_is_text}}{{#style.background_is_primary}}tw-bg-primary tw-text-primary-contrast{{/style.background_is_primary}}">
+    <div class="tw-mx-auto tw-grid tw-max-w-container tw-gap-10 tw-px-4 tw-text-start md:tw-grid-cols-3">
+        <div class="tw-flex tw-flex-col tw-gap-3">
+            <p class="tw-font-heading tw-text-xl tw-font-bold">{{site.name}}</p>
+            {{#content.about}}
+            <p class="tw-text-sm tw-opacity-80">{{content.about}}</p>
+            {{/content.about}}
+        </div>
+        <nav class="tw-flex tw-flex-col tw-gap-2" aria-label="{{content.menu_title}}">
+            <p class="tw-font-semibold">{{content.menu_title}}</p>
+            {{#data.menu.items}}
+            <a href="{{href}}" class="tw-text-sm tw-no-underline tw-opacity-80 hover:tw-opacity-100">{{label}}</a>
+            {{/data.menu.items}}
+        </nav>
+        <div class="tw-flex tw-flex-col tw-gap-2 tw-text-sm">
+            <p class="tw-font-semibold">{{content.contact_title}}</p>
+            {{#content.contact_email}}
+            <a href="mailto:{{content.contact_email}}" class="tw-flex tw-items-center tw-gap-2 tw-no-underline tw-opacity-80 hover:tw-opacity-100"><span class="aisg-icon aisg-icon--mail" aria-hidden="true"></span>{{content.contact_email}}</a>
+            {{/content.contact_email}}
+            {{#content.contact_phone}}
+            <a href="tel:{{content.contact_phone}}" class="tw-flex tw-items-center tw-gap-2 tw-no-underline tw-opacity-80 hover:tw-opacity-100"><span class="aisg-icon aisg-icon--phone" aria-hidden="true"></span>{{content.contact_phone}}</a>
+            {{/content.contact_phone}}
+        </div>
+    </div>
+    <div class="tw-mx-auto tw-mt-12 tw-max-w-container tw-border-t tw-border-current tw-px-4 tw-pt-6 tw-text-xs tw-opacity-70">
+        © {{site.year}} {{site.name}}. {{content.legal}}
+    </div>
+</footer>

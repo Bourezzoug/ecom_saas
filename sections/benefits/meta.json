@@ -1,0 +1,16 @@
+{
+    "key": "benefits",
+    "name": "Benefits / USPs",
+    "category": "content",
+    "placement": "body",
+    "page_types": [
+        "home",
+        "about",
+        "landing",
+        "custom"
+    ],
+    "requires_woocommerce": false,
+    "interactive": false,
+    "thumbnail": null,
+    "planner_description": "Grid of the store's key selling points, each with an icon, title and short text."
+}

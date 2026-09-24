@@ -1,0 +1,83 @@
+{
+    "$schema": "../_meta-schema/section.schema.json",
+    "key": "lp-guarantee",
+    "version": 1,
+    "fields": [
+        {
+            "name": "icon",
+            "type": "icon",
+            "label": "Icon",
+            "default": "shield",
+            "ai": {
+                "generate": true,
+                "hint": "Icon for the promise"
+            }
+        },
+        {
+            "name": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "Our promise to you",
+            "constraints": {
+                "maxLength": 70,
+                "minLength": 2
+            },
+            "required": true,
+            "ai": {
+                "generate": true,
+                "hint": "Short, reassuring title"
+            }
+        },
+        {
+            "name": "text",
+            "type": "textarea",
+            "label": "Text",
+            "default": "If something is not right, tell us and we will make it right.",
+            "constraints": {
+                "maxLength": 400
+            },
+            "ai": {
+                "generate": true,
+                "hint": "Two or three sentences describing the store's promise in general terms; no specific day counts or refund amounts"
+            }
+        },
+        {
+            "name": "cta",
+            "type": "link",
+            "label": "Link",
+            "default": {
+                "label": "",
+                "target": {
+                    "kind": "url",
+                    "value": "#"
+                }
+            },
+            "constraints": {
+                "maxLength": 24
+            }
+        }
+    ],
+    "style": [
+        {
+            "name": "background",
+            "type": "select",
+            "label": "Background",
+            "default": "surface",
+            "options": [
+                {
+                    "value": "background",
+                    "label": "Page background"
+                },
+                {
+                    "value": "surface",
+                    "label": "Surface"
+                },
+                {
+                    "value": "primary",
+                    "label": "Primary colour"
+                }
+            ]
+        }
+    ],
+    "data": {}
+}

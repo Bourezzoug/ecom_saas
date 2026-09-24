@@ -1,0 +1,17 @@
+{
+    "key": "testimonials",
+    "name": "Testimonials",
+    "category": "social_proof",
+    "placement": "body",
+    "page_types": [
+        "home",
+        "about",
+        "landing",
+        "custom"
+    ],
+    "requires_woocommerce": false,
+    "interactive": false,
+    "review_required": true,
+    "thumbnail": null,
+    "planner_description": "Customer quotes. The AI writes examples; the store owner replaces them with real reviews."
+}

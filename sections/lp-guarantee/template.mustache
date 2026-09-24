@@ -1,0 +1,10 @@
+<section id="{{section.anchor}}" data-aisg-section="{{section.key}}" class="aisg-lp-guarantee tw-py-16 {{#style.background_is_background}}tw-bg-background tw-text-text{{/style.background_is_background}}{{#style.background_is_surface}}tw-bg-surface tw-text-text{{/style.background_is_surface}}{{#style.background_is_primary}}tw-bg-primary tw-text-primary-contrast{{/style.background_is_primary}}">
+    <div class="tw-mx-auto tw-flex tw-max-w-3xl tw-flex-col tw-items-center tw-gap-4 tw-px-4 tw-text-center md:tw-flex-row md:tw-text-start">
+        <span class="tw-flex tw-h-20 tw-w-20 tw-shrink-0 tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-border-current tw-text-3xl"><span class="aisg-icon aisg-icon--{{content.icon}}" aria-hidden="true"></span></span>
+        <div class="tw-flex tw-flex-col tw-gap-2">
+            <h2 class="tw-font-heading tw-text-2xl tw-font-bold">{{content.title}}</h2>
+            <p class="tw-opacity-80">{{content.text}}</p>
+            {{#content.cta.label}}<a href="{{content.cta.href}}" class="tw-w-fit tw-font-semibold tw-underline tw-underline-offset-4">{{content.cta.label}}</a>{{/content.cta.label}}
+        </div>
+    </div>
+</section>

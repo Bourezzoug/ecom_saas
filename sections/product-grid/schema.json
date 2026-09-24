@@ -1,0 +1,71 @@
+{
+    "$schema": "../_meta-schema/section.schema.json",
+    "key": "product-grid",
+    "version": 1,
+    "fields": [
+        {
+            "name": "title",
+            "type": "text",
+            "label": "Title",
+            "required": true,
+            "default": "Best sellers",
+            "constraints": { "minLength": 2, "maxLength": 60 },
+            "ai": { "generate": true, "hint": "Short title for this group of products" }
+        },
+        {
+            "name": "subtitle",
+            "type": "textarea",
+            "label": "Subtitle",
+            "default": "",
+            "constraints": { "maxLength": 160 },
+            "ai": { "generate": true, "hint": "One sentence inviting shoppers to browse" }
+        },
+        {
+            "name": "query",
+            "type": "product_query",
+            "label": "Products to show",
+            "default": { "source": "latest", "limit": 8, "category": null, "ids": [] }
+        },
+        {
+            "name": "add_to_cart_label",
+            "type": "text",
+            "label": "Add to cart label",
+            "default": "Add to cart",
+            "constraints": { "maxLength": 24 },
+            "ai": { "generate": true, "hint": "Add to cart button text, 1 to 3 words" }
+        },
+        {
+            "name": "view_all",
+            "type": "link",
+            "label": "View all link",
+            "default": { "label": "View all", "target": { "kind": "system", "value": "shop" } },
+            "constraints": { "maxLength": 24 },
+            "ai": { "generate": true, "hint": "Link text to see all products, 1 to 3 words" }
+        }
+    ],
+    "style": [
+        {
+            "name": "columns",
+            "type": "select",
+            "label": "Columns on desktop",
+            "default": "4",
+            "options": [
+                { "value": "3", "label": "3" },
+                { "value": "4", "label": "4" }
+            ]
+        },
+        {
+            "name": "background",
+            "type": "select",
+            "label": "Background",
+            "default": "background",
+            "options": [
+                { "value": "background", "label": "Page background" },
+                { "value": "surface", "label": "Surface" }
+            ]
+        }
+    ],
+    "data": {
+        "products": { "resolver": "products", "from_field": "query" }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "key": "lp-guarantee",
+    "name": "Landing — guarantee",
+    "category": "landing",
+    "placement": "body",
+    "page_types": [
+        "landing",
+        "custom",
+        "about"
+    ],
+    "requires_woocommerce": false,
+    "interactive": false,
+    "review_required": true,
+    "thumbnail": null,
+    "planner_description": "Reassurance block about the store's guarantee or promise, with an icon."
+}

@@ -1,0 +1,14 @@
+{
+    "key": "categories-grid",
+    "name": "Categories grid",
+    "category": "commerce",
+    "placement": "body",
+    "page_types": [
+        "home",
+        "custom"
+    ],
+    "requires_woocommerce": true,
+    "interactive": false,
+    "thumbnail": null,
+    "planner_description": "Tiles linking to product categories, to help shoppers browse."
+}

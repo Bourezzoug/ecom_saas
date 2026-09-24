@@ -1,0 +1,78 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://aisg.local/schemas/section.schema.json",
+    "title": "AISG section schema.json",
+    "type": "object",
+    "required": ["key", "version", "fields", "style", "data"],
+    "additionalProperties": false,
+    "properties": {
+        "$schema": { "type": "string" },
+        "key": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+        "version": { "type": "integer", "minimum": 1 },
+        "fields": { "type": "array", "items": { "$ref": "#/$defs/field" } },
+        "style": { "type": "array", "items": { "$ref": "#/$defs/field" } },
+        "data": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "object",
+                "required": ["resolver"],
+                "additionalProperties": false,
+                "properties": {
+                    "resolver": { "enum": ["products", "product", "categories", "menu"] },
+                    "from_field": { "type": "string" }
+                }
+            }
+        }
+    },
+    "$defs": {
+        "field": {
+            "type": "object",
+            "required": ["name", "type", "label"],
+            "additionalProperties": false,
+            "properties": {
+                "name": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+                "type": {
+                    "enum": ["text", "textarea", "number", "boolean", "select", "color", "link", "image", "icon", "product", "product_query", "category", "repeater"]
+                },
+                "label": { "type": "string", "minLength": 1 },
+                "required": { "type": "boolean" },
+                "default": true,
+                "item_label": { "type": "string" },
+                "constraints": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "minLength": { "type": "integer", "minimum": 0 },
+                        "maxLength": { "type": "integer", "minimum": 1 },
+                        "minItems": { "type": "integer", "minimum": 0 },
+                        "maxItems": { "type": "integer", "minimum": 1 },
+                        "min": { "type": "number" },
+                        "max": { "type": "number" }
+                    }
+                },
+                "options": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "object",
+                        "required": ["value"],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+                            "label": { "type": "string" }
+                        }
+                    }
+                },
+                "ai": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "generate": { "type": "boolean" },
+                        "hint": { "type": "string", "maxLength": 200 }
+                    }
+                },
+                "fields": { "type": "array", "items": { "$ref": "#/$defs/field" } }
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "key": "hero-centered",
+    "name": "Hero — centred",
+    "category": "hero",
+    "placement": "body",
+    "page_types": [
+        "home",
+        "about",
+        "contact",
+        "landing",
+        "custom"
+    ],
+    "requires_woocommerce": false,
+    "interactive": false,
+    "thumbnail": null,
+    "planner_description": "Centred headline, supporting text and buttons, no image. Good for a bold, simple opening."
+}
